@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.inti.entities.Role;
 import com.inti.entities.Utilisateur;
-import com.inti.model.UtililisateurDetail;
+import com.inti.models.UtilisateurDetail;
 import com.inti.service.interfaces.IUtilisateurService;
 
 @Service
@@ -31,7 +31,7 @@ public class AppUserDetailsService implements UserDetailsService {
 		for (Role role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getLibelle())); // les roles dans la variable authorities : admin,user
 		}
-		UtililisateurDetail utililisateurDetail=new UtililisateurDetail(); 
+		UtilisateurDetail utililisateurDetail=new UtilisateurDetail(); 
 		utililisateurDetail.setUtilisateur(utilisateur);  // l'utilisateur
 		utililisateurDetail.setAuthorities(authorities); // les profils
 		return utililisateurDetail;

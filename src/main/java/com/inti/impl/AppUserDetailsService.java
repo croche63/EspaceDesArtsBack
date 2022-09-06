@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.inti.entities.Role;
 import com.inti.entities.Utilisateur;
-import com.inti.model.UtililisateurDetail;
+import com.inti.models.UtililisateurDetail;
 import com.inti.service.interfaces.IUtilisateurService;
 
 @Service
