@@ -20,6 +20,7 @@ public class Evenement {
 	private Date dateDebut;
 	private Date dateFin;
 	private Byte[] logo;
+	
 	@ManyToOne
 	@JoinColumn(name="id_reservation")
 	private Reservation reservation;
