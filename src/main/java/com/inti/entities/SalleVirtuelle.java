@@ -1,9 +1,13 @@
 package com.inti.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class SalleVirtuelle {
@@ -14,6 +18,14 @@ public class SalleVirtuelle {
 	private String libelle;
 	private String description;
 	// TODO Liens avec autres classes
+	@OneToMany(mappedBy = "salleVirtuelle")
+	private List<SignalementSalleVirtuelle> signalementSalleVirtuelle;
+	@OneToMany(mappedBy = "salleVirtuelle")
+	private List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle;
+	@ManyToOne
+	private Proprietaire proprietaire;
+	@OneToMany(mappedBy = "salleVirtuelle")
+	private Oeuvre oeuvre;
 	
 	public SalleVirtuelle() {}
 
@@ -39,6 +51,38 @@ public class SalleVirtuelle {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<SignalementSalleVirtuelle> getSignalementSalleVirtuelle() {
+		return signalementSalleVirtuelle;
+	}
+
+	public void setSignalementSalleVirtuelle(List<SignalementSalleVirtuelle> signalementSalleVirtuelle) {
+		this.signalementSalleVirtuelle = signalementSalleVirtuelle;
+	}
+
+	public List<CommentaireSalleVirtuelle> getCommentaireSalleVirtuelle() {
+		return commentaireSalleVirtuelle;
+	}
+
+	public void setCommentaireSalleVirtuelle(List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle) {
+		this.commentaireSalleVirtuelle = commentaireSalleVirtuelle;
+	}
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+	public Oeuvre getOeuvre() {
+		return oeuvre;
+	}
+
+	public void setOeuvre(Oeuvre oeuvre) {
+		this.oeuvre = oeuvre;
 	}
 	
 }

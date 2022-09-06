@@ -1,10 +1,14 @@
 package com.inti.entities;
 
+import java.util.List;
+
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.inti.models.Adresse;
 
@@ -19,7 +23,18 @@ public class SalleExposition {
 	private String dimensionSalle;
 	@Embedded
 	private Adresse adresse;
-	// TODO Liens avec autres classes
+	@OneToOne
+	private Proprietaire proprietaire;
+	@OneToMany(mappedBy = "salleExposition")
+	private List<SignalementSalleExposition> signalementSalleExposition;
+	@OneToMany(mappedBy = "salleExposition")
+	private List<Reservation> reservation;
+	@OneToMany(mappedBy = "salleExposition")
+	private List<EvaluationArtiste> evaluationArtiste;
+	@OneToMany(mappedBy = "salleExposition")
+	private List<CommentaireSalleExposition> commentaireSalleExposition;
+	@OneToMany(mappedBy = "salleExposition")
+	private Oeuvre oeuvre;
 		
 	public SalleExposition() {}
 
@@ -62,5 +77,53 @@ public class SalleExposition {
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
-	
+
+	public Proprietaire getProprietaire() {
+		return proprietaire;
+	}
+
+	public void setProprietaire(Proprietaire proprietaire) {
+		this.proprietaire = proprietaire;
+	}
+
+	public List<SignalementSalleExposition> getSignalementSalleExposition() {
+		return signalementSalleExposition;
+	}
+
+	public void setSignalementSalleExposition(List<SignalementSalleExposition> signalementSalleExposition) {
+		this.signalementSalleExposition = signalementSalleExposition;
+	}
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	public List<EvaluationArtiste> getEvaluationArtiste() {
+		return evaluationArtiste;
+	}
+
+	public void setEvaluationArtiste(List<EvaluationArtiste> evaluationArtiste) {
+		this.evaluationArtiste = evaluationArtiste;
+	}
+
+	public List<CommentaireSalleExposition> getCommentaireSalleExposition() {
+		return commentaireSalleExposition;
+	}
+
+	public void setCommentaireSalleExposition(List<CommentaireSalleExposition> commentaireSalleExposition) {
+		this.commentaireSalleExposition = commentaireSalleExposition;
+	}
+
+	public Oeuvre getOeuvre() {
+		return oeuvre;
+	}
+
+	public void setOeuvre(Oeuvre oeuvre) {
+		this.oeuvre = oeuvre;
+	}
+
 }
