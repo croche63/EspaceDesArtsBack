@@ -1,4 +1,4 @@
-package com.inti.model;
+package com.inti.models;
 
 import java.util.Collection;
 import java.util.Set;
@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.inti.entities.Utilisateur;
 
-public class UtililisateurDetail implements UserDetails {
+public class UtilisateurDetail implements UserDetails {
 
 	private Utilisateur utilisateur;
 	private Set<GrantedAuthority> authorities = null;
