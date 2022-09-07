@@ -7,9 +7,11 @@ public class Adresse {
 	private int numeroRue;
 	private String nomRue;
 	private int codePostal;
+	private String ville;
 	private String pays;
-	
-	public Adresse() {}
+
+	public Adresse() {
+	}
 
 	public int getNumeroRue() {
 		return numeroRue;
@@ -42,6 +44,13 @@ public class Adresse {
 	public void setPays(String pays) {
 		this.pays = pays;
 	}
-	
-	
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
 }
