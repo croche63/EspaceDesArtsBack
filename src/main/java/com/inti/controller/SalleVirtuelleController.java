@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.inti.entities.SalleExposition;
 import com.inti.entities.SalleVirtuelle;
 import com.inti.service.interfaces.ISalleVirtuelleService;
 

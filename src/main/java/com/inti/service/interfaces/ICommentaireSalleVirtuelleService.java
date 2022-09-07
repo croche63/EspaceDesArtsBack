@@ -2,7 +2,6 @@ package com.inti.service.interfaces;
 
 import java.util.List;
 
-import com.inti.entities.CommentaireSalleExposition;
 import com.inti.entities.CommentaireSalleVirtuelle;
 
 public interface ICommentaireSalleVirtuelleService {

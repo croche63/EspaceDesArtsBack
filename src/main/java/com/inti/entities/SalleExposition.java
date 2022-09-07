@@ -34,7 +34,7 @@ public class SalleExposition {
 	@OneToMany(mappedBy = "salleExposition")
 	private List<CommentaireSalleExposition> commentaireSalleExposition;
 	@OneToMany(mappedBy = "salleExposition")
-	private Oeuvre oeuvre;
+	private List<Oeuvre> oeuvre;
 		
 	public SalleExposition() {}
 
@@ -118,12 +118,11 @@ public class SalleExposition {
 		this.commentaireSalleExposition = commentaireSalleExposition;
 	}
 
-	public Oeuvre getOeuvre() {
+	public List<Oeuvre> getOeuvre() {
 		return oeuvre;
 	}
 
-	public void setOeuvre(Oeuvre oeuvre) {
+	public void setOeuvre(List<Oeuvre> oeuvre) {
 		this.oeuvre = oeuvre;
 	}
-
 }

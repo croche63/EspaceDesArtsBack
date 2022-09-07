@@ -25,7 +25,7 @@ public class SalleVirtuelle {
 	@ManyToOne
 	private Proprietaire proprietaire;
 	@OneToMany(mappedBy = "salleVirtuelle")
-	private Oeuvre oeuvre;
+	private List<Oeuvre> oeuvre;
 	
 	public SalleVirtuelle() {}
 
@@ -77,12 +77,11 @@ public class SalleVirtuelle {
 		this.proprietaire = proprietaire;
 	}
 
-	public Oeuvre getOeuvre() {
+	public List<Oeuvre> getOeuvre() {
 		return oeuvre;
 	}
 
-	public void setOeuvre(Oeuvre oeuvre) {
+	public void setOeuvre(List<Oeuvre> oeuvre) {
 		this.oeuvre = oeuvre;
-	}
-	
+	}	
 }
