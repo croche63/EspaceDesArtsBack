@@ -12,7 +12,7 @@ import com.inti.entities.Utilisateur;
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 	Utilisateur findByUsername(String username);
 
-	List<Utilisateur> findByNom(String nom);
+	List<Utilisateur> findByNom(String Nom);
 
 	@Query(value = "SELECT count(*) FROM Utilisateur", nativeQuery = true)
 	int nbrUtilisateurs();

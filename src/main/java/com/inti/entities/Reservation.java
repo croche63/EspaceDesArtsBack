@@ -1,15 +1,27 @@
 package com.inti.entities;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
 public class Reservation {
+	
+	@Id
+	@GeneratedValue
 	private Long idReservation;
+	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
+	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 	
 	@OneToMany(mappedBy = "reservation")
@@ -18,13 +30,10 @@ public class Reservation {
 	private Proprietaire proprietaire;
 	@ManyToOne
 	private Artiste artiste;
-	@OneToMany
+	@ManyToOne
 	private SalleExposition salleExposition;
 
-	public Reservation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Reservation() {}
 
 	public Reservation(Long idReservation, Date dateDebut, Date dateFin, List<Evenement> evenement,
 			Proprietaire proprietaire, Artiste artiste, SalleExposition salleExposition) {
@@ -86,6 +95,7 @@ public class Reservation {
 		this.artiste = artiste;
 	}
 
+
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}
@@ -100,6 +110,7 @@ public class Reservation {
 				+ ", evenement=" + evenement + ", proprietaire=" + proprietaire + ", artiste=" + artiste
 				+ ", salleExposition=" + salleExposition + "]";
 	}
+
 }
 	
 
