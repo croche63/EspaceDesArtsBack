@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class SignalementSalleExposition implements Serializable {
@@ -17,18 +21,20 @@ public class SignalementSalleExposition implements Serializable {
 	private Long id;
 	private String titre;
 	private String description;
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.DATE)
 	private Date date;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idSalleExposition")
 	private SalleExposition salleExposition;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
-	
+
 	public SignalementSalleExposition() {
-		
+
 	}
 
 	public SignalementSalleExposition(Long id, String titre, String description, Date date) {
@@ -91,9 +97,5 @@ public class SignalementSalleExposition implements Serializable {
 		return "SignalementSalleExposition [id=" + id + ", titre=" + titre + ", description=" + description + ", date="
 				+ date + "]";
 	}
-	
-	
-	
-	
 
 }

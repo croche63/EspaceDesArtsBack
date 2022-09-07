@@ -12,27 +12,30 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
-public class CommentaireSalleExposition implements Serializable{
+public class CommentaireSalleExposition implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titre;
 	private String description;
 	private int note;
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idSalleExposition")
 	private SalleExposition salleExposition;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
-	
+
 	public CommentaireSalleExposition() {
-		
+
 	}
 
 	public CommentaireSalleExposition(Long id, String titre, String description, int note, Date date) {
@@ -105,9 +108,5 @@ public class CommentaireSalleExposition implements Serializable{
 		return "CommentaireSalleExposition [id=" + id + ", titre=" + titre + ", description=" + description + ", note="
 				+ note + ", date=" + date + "]";
 	}
-	
-	
-	
-	
 
 }

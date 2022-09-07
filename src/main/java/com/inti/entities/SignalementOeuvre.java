@@ -9,26 +9,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class SignalementOeuvre implements Serializable{
+public class SignalementOeuvre implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titre;
 	private String description;
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+	@Temporal(TemporalType.DATE)
 	private Date date;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idOeuvre")
 	private Oeuvre oeuvre;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
-	
+
 	public SignalementOeuvre() {
-		
+
 	}
 
 	public SignalementOeuvre(Long id, String titre, String description, Date date) {
@@ -91,11 +97,5 @@ public class SignalementOeuvre implements Serializable{
 		return "SignalementOeuvre [id=" + id + ", titre=" + titre + ", description=" + description + ", date=" + date
 				+ "]";
 	}
-
-	
-	
-	
-	
-	
 
 }
