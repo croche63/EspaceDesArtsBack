@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -18,6 +19,7 @@ public class Oeuvre {
 	private Long idOeuvre;
 	private String nom;
 	private String information;
+	@Lob
 	private Byte[] photoOeuvre;
 	private int prix;
 	private String type;
