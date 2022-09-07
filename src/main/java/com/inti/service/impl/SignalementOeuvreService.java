@@ -10,8 +10,8 @@ import com.inti.repositories.SignalementOeuvreRepository;
 import com.inti.service.interfaces.ISignalementOeuvreService;
 
 @Service
-public class SignalementOeuvreService implements ISignalementOeuvreService{
-	
+public class SignalementOeuvreService implements ISignalementOeuvreService {
+
 	@Autowired
 	SignalementOeuvreRepository signalementOeuvreRepository;
 
@@ -33,7 +33,7 @@ public class SignalementOeuvreService implements ISignalementOeuvreService{
 	@Override
 	public void delete(Long idSignalementOeuvre) {
 		signalementOeuvreRepository.deleteById(idSignalementOeuvre);
-		
+
 	}
 
 }

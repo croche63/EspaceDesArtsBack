@@ -11,34 +11,34 @@ import javax.persistence.OneToOne;
 public class Proprietaire extends Utilisateur {
 
 	@OneToMany(mappedBy = "proprietaire")
-	private Set<Reservation> Reservations = new HashSet<>();
+	private Set<Reservation> reservations = new HashSet<>();
 
 	@OneToOne(mappedBy = "proprietaire")
-	private SalleExposition SalleExposition;
+	private SalleExposition salleExposition;
 
 	public Proprietaire() {
 		super();
 	}
 
 	public Set<Reservation> getReservations() {
-		return Reservations;
+		return reservations;
 	}
 
 	public void setReservations(Set<Reservation> reservations) {
-		Reservations = reservations;
+		this.reservations = reservations;
 	}
 
 	public SalleExposition getSalleExposition() {
-		return SalleExposition;
+		return salleExposition;
 	}
 
 	public void setSalleExposition(SalleExposition salleExposition) {
-		SalleExposition = salleExposition;
+		this.salleExposition = salleExposition;
 	}
 
 	@Override
 	public String toString() {
-		return "Proprietaire [Reservations=" + Reservations + ", SalleExposition=" + SalleExposition + "]";
+		return "Proprietaire [Reservations=" + reservations + ", SalleExposition=" + salleExposition + "]";
 	}
 
 }

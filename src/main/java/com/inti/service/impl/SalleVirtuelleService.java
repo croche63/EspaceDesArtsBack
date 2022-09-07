@@ -3,16 +3,17 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.SalleVirtuelle;
 import com.inti.repositories.SalleVirtuelleRepository;
 import com.inti.service.interfaces.ISalleVirtuelleService;
 
-public class SalleVirtuelleService implements ISalleVirtuelleService{
-	
+@Service
+public class SalleVirtuelleService implements ISalleVirtuelleService {
+
 	@Autowired
 	SalleVirtuelleRepository SalleVirtuelleRepository;
-	
 
 	@Override
 	public List<SalleVirtuelle> findAll() {
@@ -32,7 +33,7 @@ public class SalleVirtuelleService implements ISalleVirtuelleService{
 	@Override
 	public void delete(Long idSalleVirtuelle) {
 		SalleVirtuelleRepository.deleteById(idSalleVirtuelle);
-		
+
 	}
 
 }

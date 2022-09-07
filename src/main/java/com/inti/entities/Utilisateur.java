@@ -21,34 +21,34 @@ import javax.persistence.OneToMany;
 public class Utilisateur implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String Nom;
-	private String Prenom;
+	private Long id;
+	private String nom;
+	private String prenom;
 	@Column(unique = true)
-	private String Username;
-	private String Password;
-	private String Email;
-	private String NumeroTel;
+	private String username;
+	private String password;
+	private String email;
+	private String numeroTel;
 	@Lob
-	private byte[] Image;
+	private byte[] image;
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<CommentaireSalleExposition> CommentaireSalleExpositions = new HashSet<>();
+	private Set<CommentaireSalleExposition> commentaireSalleExpositions = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<SignalementSalleExposition> SignalementSalleExpositions = new HashSet<>();
+	private Set<SignalementSalleExposition> signalementSalleExpositions = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<CommentaireOeuvre> CommentaireOeuvres = new HashSet<>();
+	private Set<CommentaireOeuvre> commentaireOeuvres = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<SignalementOeuvre> SignalementOeuvres = new HashSet<>();
+	private Set<SignalementOeuvre> signalementOeuvres = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<CommentaireSalleVirtuelle> CommentaireSalleVirtuelles = new HashSet<>();
+	private Set<CommentaireSalleVirtuelle> commentaireSalleVirtuelles = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
-	private Set<SignalementSalleVirtuelle> SignalementSalleVirtuelles = new HashSet<>();
+	private Set<SignalementSalleVirtuelle> signalementSalleVirtuelles = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "profil", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "Id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "Id"))
@@ -59,115 +59,115 @@ public class Utilisateur implements Serializable {
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
-		Nom = nom;
+		this.nom = nom;
 	}
 
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 
 	public void setPrenom(String prenom) {
-		Prenom = prenom;
+		this.prenom = prenom;
 	}
 
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public String getNumeroTel() {
-		return NumeroTel;
+		return numeroTel;
 	}
 
 	public void setNumeroTel(String numeroTel) {
-		NumeroTel = numeroTel;
+		this.numeroTel = numeroTel;
 	}
 
 	public byte[] getImage() {
-		return Image;
+		return image;
 	}
 
 	public void setImage(byte[] image) {
-		Image = image;
+		this.image = image;
 	}
 
 	public Set<CommentaireSalleExposition> getCommentaireSalleExpositions() {
-		return CommentaireSalleExpositions;
+		return commentaireSalleExpositions;
 	}
 
 	public void setCommentaireSalleExpositions(Set<CommentaireSalleExposition> commentaireSalleExpositions) {
-		CommentaireSalleExpositions = commentaireSalleExpositions;
+		this.commentaireSalleExpositions = commentaireSalleExpositions;
 	}
 
 	public Set<SignalementSalleExposition> getSignalementSalleExpositions() {
-		return SignalementSalleExpositions;
+		return signalementSalleExpositions;
 	}
 
 	public void setSignalementSalleExpositions(Set<SignalementSalleExposition> signalementSalleExpositions) {
-		SignalementSalleExpositions = signalementSalleExpositions;
+		this.signalementSalleExpositions = signalementSalleExpositions;
 	}
 
 	public Set<CommentaireOeuvre> getCommentaireOeuvres() {
-		return CommentaireOeuvres;
+		return commentaireOeuvres;
 	}
 
 	public void setCommentaireOeuvres(Set<CommentaireOeuvre> commentaireOeuvres) {
-		CommentaireOeuvres = commentaireOeuvres;
+		this.commentaireOeuvres = commentaireOeuvres;
 	}
 
 	public Set<SignalementOeuvre> getSignalementOeuvres() {
-		return SignalementOeuvres;
+		return signalementOeuvres;
 	}
 
 	public void setSignalementOeuvres(Set<SignalementOeuvre> signalementOeuvres) {
-		SignalementOeuvres = signalementOeuvres;
+		this.signalementOeuvres = signalementOeuvres;
 	}
 
 	public Set<CommentaireSalleVirtuelle> getCommentaireSalleVirtuelles() {
-		return CommentaireSalleVirtuelles;
+		return commentaireSalleVirtuelles;
 	}
 
 	public void setCommentaireSalleVirtuelles(Set<CommentaireSalleVirtuelle> commentaireSalleVirtuelles) {
-		CommentaireSalleVirtuelles = commentaireSalleVirtuelles;
+		this.commentaireSalleVirtuelles = commentaireSalleVirtuelles;
 	}
 
 	public Set<SignalementSalleVirtuelle> getSignalementSalleVirtuelles() {
-		return SignalementSalleVirtuelles;
+		return signalementSalleVirtuelles;
 	}
 
 	public void setSignalementSalleVirtuelles(Set<SignalementSalleVirtuelle> signalementSalleVirtuelles) {
-		SignalementSalleVirtuelles = signalementSalleVirtuelles;
+		this.signalementSalleVirtuelles = signalementSalleVirtuelles;
 	}
 
 	public Set<Role> getRoles() {
@@ -180,12 +180,12 @@ public class Utilisateur implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Utilisateur [Id=" + Id + ", Nom=" + Nom + ", Prenom=" + Prenom + ", Username=" + Username
-				+ ", Password=" + Password + ", Email=" + Email + ", NumeroTel=" + NumeroTel + ", Image="
-				+ Arrays.toString(Image) + ", CommentaireSalleExpositions=" + CommentaireSalleExpositions
-				+ ", SignalementSalleExpositions=" + SignalementSalleExpositions + ", CommentaireOeuvres="
-				+ CommentaireOeuvres + ", SignalementOeuvres=" + SignalementOeuvres + ", CommentaireSalleVirtuelles="
-				+ CommentaireSalleVirtuelles + ", SignalementSalleVirtuelles=" + SignalementSalleVirtuelles + ", roles="
+		return "Utilisateur [Id=" + id + ", Nom=" + nom + ", Prenom=" + prenom + ", Username=" + username
+				+ ", Password=" + password + ", Email=" + email + ", NumeroTel=" + numeroTel + ", Image="
+				+ Arrays.toString(image) + ", CommentaireSalleExpositions=" + commentaireSalleExpositions
+				+ ", SignalementSalleExpositions=" + signalementSalleExpositions + ", CommentaireOeuvres="
+				+ commentaireOeuvres + ", SignalementOeuvres=" + signalementOeuvres + ", CommentaireSalleVirtuelles="
+				+ commentaireSalleVirtuelles + ", SignalementSalleVirtuelles=" + signalementSalleVirtuelles + ", roles="
 				+ roles + "]";
 	}
 

@@ -5,9 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.inti.entities.Evenement;
 
-public interface EvenementRepository extends JpaRepository<Evenement, Long>{
-	Evenement findByUsername(String username);
-	
+public interface EvenementRepository extends JpaRepository<Evenement, Long> {
+
 	@Query(value = "SELECT count(*) FROM Evenement", nativeQuery = true)
 	int nbrEvenement();
 

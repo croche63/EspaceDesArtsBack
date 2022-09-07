@@ -3,12 +3,14 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Reservation;
 import com.inti.repositories.ReservationRepository;
 import com.inti.service.interfaces.IReservationService;
 
-public class ReservationService implements IReservationService{
+@Service
+public class ReservationService implements IReservationService {
 	@Autowired
 	ReservationRepository reservationRepository;
 

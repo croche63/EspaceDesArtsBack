@@ -37,7 +37,7 @@ public class SignalementOeuvreController {
 		return signalementOeuvreService.save(signalementOeuvre);
 	}
 
-	@DeleteMapping("/commentaireSalleVirt/{id}")
+	@DeleteMapping("/signalementOeuvre/{id}")
 	public void deleteSigOeuvre(@PathVariable("id") Long id) {
 		signalementOeuvreService.delete(id);
 	}
