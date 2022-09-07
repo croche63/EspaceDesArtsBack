@@ -45,7 +45,6 @@ public class UtilisateurController {
 	@PostMapping("/utilisateurs")
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
-			@RequestParam("dateNaissance") String dateNaissance,
 			@RequestParam("email") String email,
 			@RequestParam("numeroTel") String numeroTel,
 		//	@RequestParam("roles") Set<Role> roles, 
