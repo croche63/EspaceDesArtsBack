@@ -30,7 +30,7 @@ public class EvaluationArtiste implements Serializable {
 	private SalleExposition salleExposition;
 
 	@ManyToOne
-	private Artiste Artiste;
+	private Artiste artiste;
 
 	public EvaluationArtiste() {
 		super();
@@ -84,18 +84,19 @@ public class EvaluationArtiste implements Serializable {
 		this.salleExposition = salleExposition;
 	}
 
+
 	public Artiste getArtiste() {
-		return Artiste;
+		return artiste;
 	}
 
 	public void setArtiste(Artiste artiste) {
-		Artiste = artiste;
+		this.artiste = artiste;
 	}
 
 	@Override
 	public String toString() {
 		return "EvaluationArtiste [Id=" + Id + ", Titre=" + Titre + ", Description=" + Description + ", Note=" + Note
-				+ ", date=" + date + ", SalleExposition=" + salleExposition + ", Artiste=" + Artiste + "]";
+				+ ", date=" + date + ", salleExposition=" + salleExposition + ", artiste=" + artiste + "]";
 	}
 
 }

@@ -1,13 +1,22 @@
 package com.inti.entities;
 
 import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Oeuvre {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idOeuvre;
-	private String Nom;
+	private String nom;
 	private String information;
 	private Byte[] photoOeuvre;
 	private int prix;
@@ -15,28 +24,27 @@ public class Oeuvre {
 	
 	@ManyToOne
 	private Artiste artiste;
-	@OneToMany
-	private CommentaireOeuvre commentaireOeuvre;
+	@OneToMany(mappedBy = "oeuvre")
+	private List<CommentaireOeuvre> commentaireOeuvre;
 	@ManyToOne
 	private SalleExposition salleExposition;
-	@OneToMany
-	private SignalementOeuvre signalementOeuvre;
+	@OneToMany(mappedBy = "oeuvre")
+	private List<SignalementOeuvre> signalementOeuvre;
 	@ManyToOne
 	private SalleVirtuelle salleVirtuelle;
-	
-	
-	
-	public Oeuvre() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+	public Oeuvre() {}
+
+
+
+
 
 	public Oeuvre(Long idOeuvre, String nom, String information, Byte[] photoOeuvre, int prix, String type,
-			Artiste artiste, CommentaireOeuvre commentaireOeuvre, SalleExposition salleExposition,
-			SignalementOeuvre signalementOeuvre, SalleVirtuelle salleVirtuelle) {
+			Artiste artiste, List<CommentaireOeuvre> commentaireOeuvre, SalleExposition salleExposition,
+			List<SignalementOeuvre> signalementOeuvre, SalleVirtuelle salleVirtuelle) {
 		super();
 		this.idOeuvre = idOeuvre;
-		Nom = nom;
+		this.nom = nom;
 		this.information = information;
 		this.photoOeuvre = photoOeuvre;
 		this.prix = prix;
@@ -62,13 +70,18 @@ public class Oeuvre {
 	}
 
 
+
+
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 
+
+
+
 	public void setNom(String nom) {
-		Nom = nom;
+		this.nom = nom;
 	}
 
 
@@ -120,28 +133,13 @@ public class Oeuvre {
 		this.artiste = artiste;
 	}
 
-	public CommentaireOeuvre getCommentaireOeuvre() {
-		return commentaireOeuvre;
-	}
-
-	public void setCommentaireOeuvre(CommentaireOeuvre commentaireOeuvre) {
-		this.commentaireOeuvre = commentaireOeuvre;
-	}
-
+	
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}
 
 	public void setSalleExposition(SalleExposition salleExposition) {
 		this.salleExposition = salleExposition;
-	}
-
-	public SignalementOeuvre getSignalementOeuvre() {
-		return signalementOeuvre;
-	}
-
-	public void setSignalementOeuvre(SignalementOeuvre signalementOeuvre) {
-		this.signalementOeuvre = signalementOeuvre;
 	}
 
 	public SalleVirtuelle getSalleVirtuelle() {
@@ -151,13 +149,45 @@ public class Oeuvre {
 	public void setSalleVirtuelle(SalleVirtuelle salleVirtuelle) {
 		this.salleVirtuelle = salleVirtuelle;
 	}
+	
+
+	public List<CommentaireOeuvre> getCommentaireOeuvre() {
+		return commentaireOeuvre;
+	}
+
+
+
+	public void setCommentaireOeuvre(List<CommentaireOeuvre> commentaireOeuvre) {
+		this.commentaireOeuvre = commentaireOeuvre;
+	}
+
+
+
+	public List<SignalementOeuvre> getSignalementOeuvre() {
+		return signalementOeuvre;
+	}
+
+
+
+	public void setSignalementOeuvre(List<SignalementOeuvre> signalementOeuvre) {
+		this.signalementOeuvre = signalementOeuvre;
+	}
+
+
+
+
 
 	@Override
 	public String toString() {
-		return "Oeuvre [idOeuvre=" + idOeuvre + ", Nom=" + Nom + ", information=" + information + ", photoOeuvre="
+		return "Oeuvre [idOeuvre=" + idOeuvre + ", nom=" + nom + ", information=" + information + ", photoOeuvre="
 				+ Arrays.toString(photoOeuvre) + ", prix=" + prix + ", type=" + type + ", artiste=" + artiste
 				+ ", commentaireOeuvre=" + commentaireOeuvre + ", salleExposition=" + salleExposition
 				+ ", signalementOeuvre=" + signalementOeuvre + ", salleVirtuelle=" + salleVirtuelle + "]";
 	}
+
+
+
+
+
 }
 

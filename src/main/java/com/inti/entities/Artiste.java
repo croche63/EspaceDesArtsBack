@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+@Entity
 public class Artiste extends Utilisateur {
 	private String Nationalite;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")

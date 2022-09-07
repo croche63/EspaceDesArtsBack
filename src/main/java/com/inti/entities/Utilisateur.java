@@ -51,7 +51,7 @@ public class Utilisateur implements Serializable {
 	private Set<SignalementSalleVirtuelle> SignalementSalleVirtuelles = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "profil", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "idUtilisateur"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
+	@JoinTable(name = "profil", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "Id"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "Id"))
 	private Set<Role> roles = new HashSet<>();
 
 	public Utilisateur() {
