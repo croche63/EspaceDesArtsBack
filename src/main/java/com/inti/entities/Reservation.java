@@ -13,14 +13,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Reservation {
 	
 	@Id
 	@GeneratedValue
 	private Long idReservation;
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.DATE)
 	private Date dateDebut;
+	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 	
