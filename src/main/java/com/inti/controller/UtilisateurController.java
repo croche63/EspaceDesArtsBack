@@ -45,8 +45,6 @@ public class UtilisateurController {
 	@PostMapping("/utilisateurs")
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
-			@RequestParam("dateNaissance") String dateNaissance,
-		//	@RequestParam("roles") Set<Role> roles, 
 			@RequestParam("image") MultipartFile image) {
 		try {
 			Utilisateur currentUser = new Utilisateur();
