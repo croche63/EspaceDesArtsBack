@@ -8,8 +8,6 @@ import com.inti.entities.EvaluationArtiste;
 
 @Repository
 public interface EvaluationArtisteRepository extends JpaRepository<EvaluationArtiste, Long> {
-	EvaluationArtiste findByUsername(String username);
-
 	@Query(value = "SELECT count(*) FROM EvaluationArtiste", nativeQuery = true)
 	int nbrEvaluationArtistes();
 }

@@ -13,9 +13,5 @@ public interface IProprietaireService {
 
 	void delete(Long idProprietaire);
 
-	Proprietaire findByUsername(String username);
-
-	List<Proprietaire> findByNom(String nom);
-
 	int nbrProprietaires();
 }

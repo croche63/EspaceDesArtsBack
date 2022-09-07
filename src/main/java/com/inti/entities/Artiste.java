@@ -13,54 +13,54 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Artiste extends Utilisateur {
-	private String Nationalite;
+	private String nationalite;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dateNaisance;
 
 	@OneToMany(mappedBy = "artiste")
-	private Set<Reservation> Reservations = new HashSet<>();
+	private Set<Reservation> reservations = new HashSet<>();
 
 	@OneToMany(mappedBy = "artiste")
-	private Set<EvaluationArtiste> EvaluationArtistes = new HashSet<>();
+	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
 	@OneToMany(mappedBy = "artiste")
-	private Set<Oeuvre> Oeuvres = new HashSet<>();
+	private Set<Oeuvre> oeuvres = new HashSet<>();
 
 	public Artiste() {
 		super();
 	}
 
 	public String getNationalite() {
-		return Nationalite;
+		return nationalite;
 	}
 
 	public void setNationalite(String nationalite) {
-		Nationalite = nationalite;
+		this.nationalite = nationalite;
 	}
 
 	public Set<Reservation> getReservations() {
-		return Reservations;
+		return reservations;
 	}
 
 	public void setReservations(Set<Reservation> reservations) {
-		Reservations = reservations;
+		this.reservations = reservations;
 	}
 
 	public Set<EvaluationArtiste> getEvaluationArtistes() {
-		return EvaluationArtistes;
+		return evaluationArtistes;
 	}
 
 	public void setEvaluationArtistes(Set<EvaluationArtiste> evaluationArtistes) {
-		EvaluationArtistes = evaluationArtistes;
+		this.evaluationArtistes = evaluationArtistes;
 	}
 
 	public Set<Oeuvre> getOeuvres() {
-		return Oeuvres;
+		return oeuvres;
 	}
 
 	public void setOeuvres(Set<Oeuvre> oeuvres) {
-		Oeuvres = oeuvres;
+		this.oeuvres = oeuvres;
 	}
 
 	public Date getDateNaisance() {
@@ -73,8 +73,8 @@ public class Artiste extends Utilisateur {
 
 	@Override
 	public String toString() {
-		return "Artiste [Nationalite=" + Nationalite + ", dateNaisance=" + dateNaisance + ", Reservations="
-				+ Reservations + ", EvaluationArtistes=" + EvaluationArtistes + ", Oeuvres=" + Oeuvres + "]";
+		return "Artiste [Nationalite=" + nationalite + ", dateNaisance=" + dateNaisance + ", Reservations="
+				+ reservations + ", EvaluationArtistes=" + evaluationArtistes + ", Oeuvres=" + oeuvres + "]";
 	}
 
 }

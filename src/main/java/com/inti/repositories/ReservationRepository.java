@@ -5,9 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.inti.entities.Reservation;
 
-public interface ReservationRepository extends JpaRepository<Reservation, Long>{
-	Reservation findByUsername(String username);
-	
+public interface ReservationRepository extends JpaRepository<Reservation, Long> {
+
 	@Query(value = "SELECT count(*) FROM Reservation", nativeQuery = true)
 	int nbrReservation();
 

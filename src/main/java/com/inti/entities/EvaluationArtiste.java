@@ -18,10 +18,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class EvaluationArtiste implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String Titre;
-	private String Description;
-	private int Note;
+	private Long id;
+	private String titre;
+	private String description;
+	private int note;
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	@Temporal(TemporalType.DATE)
 	private Date date;
@@ -37,35 +37,35 @@ public class EvaluationArtiste implements Serializable {
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getTitre() {
-		return Titre;
+		return titre;
 	}
 
 	public void setTitre(String titre) {
-		Titre = titre;
+		this.titre = titre;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
 	public int getNote() {
-		return Note;
+		return note;
 	}
 
 	public void setNote(int note) {
-		Note = note;
+		this.note = note;
 	}
 
 	public Date getDate() {
@@ -84,7 +84,6 @@ public class EvaluationArtiste implements Serializable {
 		this.salleExposition = salleExposition;
 	}
 
-
 	public Artiste getArtiste() {
 		return artiste;
 	}
@@ -95,7 +94,7 @@ public class EvaluationArtiste implements Serializable {
 
 	@Override
 	public String toString() {
-		return "EvaluationArtiste [Id=" + Id + ", Titre=" + Titre + ", Description=" + Description + ", Note=" + Note
+		return "EvaluationArtiste [Id=" + id + ", Titre=" + titre + ", Description=" + description + ", Note=" + note
 				+ ", date=" + date + ", salleExposition=" + salleExposition + ", artiste=" + artiste + "]";
 	}
 

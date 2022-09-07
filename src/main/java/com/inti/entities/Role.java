@@ -11,32 +11,32 @@ import javax.persistence.Id;
 public class Role implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long Id;
-	private String Libelle;
+	private Long id;
+	private String libelle;
 
 	public Role() {
 		super();
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getLibelle() {
-		return Libelle;
+		return libelle;
 	}
 
 	public void setLibelle(String libelle) {
-		Libelle = libelle;
+		this.libelle = libelle;
 	}
 
 	@Override
 	public String toString() {
-		return "Role [Id=" + Id + ", Libelle=" + Libelle + "]";
+		return "Role [Id=" + id + ", Libelle=" + libelle + "]";
 	}
 
 }

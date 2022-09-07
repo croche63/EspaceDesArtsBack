@@ -3,12 +3,14 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Evenement;
 import com.inti.repositories.EvenementRepository;
 import com.inti.service.interfaces.IEvenementService;
 
-public class EvenementService implements IEvenementService{
+@Service
+public class EvenementService implements IEvenementService {
 	@Autowired
 	EvenementRepository evenementRepository;
 

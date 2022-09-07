@@ -39,20 +39,8 @@ public class ArtisteService implements IArtisteService {
 	}
 
 	@Override
-	public Artiste findByUsername(String username) {
-
-		return ArtisteRepository.findByUsername(username);
-	}
-
-	@Override
 	public int nbrArtistes() {
 		return ArtisteRepository.nbrArtistes();
-	}
-
-	@Override
-	public List<Artiste> findByNom(String nom) {
-		
-		return ArtisteRepository.findByNom(nom);
 	}
 
 }

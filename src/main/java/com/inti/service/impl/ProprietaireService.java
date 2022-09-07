@@ -39,20 +39,8 @@ public class ProprietaireService implements IProprietaireService {
 	}
 
 	@Override
-	public Proprietaire findByUsername(String username) {
-
-		return ProprietaireRepository.findByUsername(username);
-	}
-
-	@Override
 	public int nbrProprietaires() {
 		return ProprietaireRepository.nbrProprietaires();
-	}
-
-	@Override
-	public List<Proprietaire> findByNom(String nom) {
-		
-		return ProprietaireRepository.findByNom(nom);
 	}
 
 }

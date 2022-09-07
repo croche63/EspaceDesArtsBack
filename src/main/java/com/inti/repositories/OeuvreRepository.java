@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 import com.inti.entities.Oeuvre;
 import com.inti.entities.Reservation;
 
-public interface OeuvreRepository extends JpaRepository<Oeuvre, Long>{
-	Oeuvre findByName(String name);
-	
+public interface OeuvreRepository extends JpaRepository<Oeuvre, Long> {
+	Oeuvre findByNom(String nom);
+
 	@Query(value = "SELECT count(*) FROM Oeuvre", nativeQuery = true)
 	int nbrOeuvre();
 
