@@ -46,6 +46,8 @@ public class UtilisateurController {
 	public String saveUtilisateur(@RequestParam("nom") String nom, @RequestParam("prenom") String prenom,
 			@RequestParam("username") String username, @RequestParam("password") String password,
 			@RequestParam("dateNaissance") String dateNaissance,
+			@RequestParam("email") String email,
+			@RequestParam("numeroTel") String numeroTel,
 		//	@RequestParam("roles") Set<Role> roles, 
 			@RequestParam("image") MultipartFile image) {
 		try {
@@ -54,6 +56,8 @@ public class UtilisateurController {
 			currentUser.setPrenom(prenom);
 			currentUser.setUsername(username);
 			currentUser.setPassword(passwordEncoder.encode(password));
+			currentUser.setEmail(email);
+			currentUser.setNumeroTel(numeroTel);
 		//	currentUser.setRoles(roles);
 			currentUser.setImage(image.getBytes());
 			utilisateurService.save(currentUser);
@@ -71,8 +75,8 @@ public class UtilisateurController {
 		utilisateurService.delete(id);
 	}
 	
-	@PutMapping("users/{idU}")
-	public Utilisateur updateUtilisateur(@PathVariable("idU") Long idUtilisateur, @RequestBody Utilisateur user) {
+	@PutMapping("users/{idUtilisateur}")
+	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur, @RequestBody Utilisateur user) {
 		Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
 		currentUtilisateur.setNom(user.getNom());
 		currentUtilisateur.setPrenom(user.getPrenom());
