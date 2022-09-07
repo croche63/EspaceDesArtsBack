@@ -11,12 +11,15 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.inti.models.Adresse;
+
 @Entity
 public class Artiste extends Utilisateur {
 	private String nationalite;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dateNaisance;
+	private Adresse adresse;
 
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
@@ -71,10 +74,12 @@ public class Artiste extends Utilisateur {
 		this.dateNaisance = dateNaisance;
 	}
 
-	@Override
-	public String toString() {
-		return "Artiste [Nationalite=" + nationalite + ", dateNaisance=" + dateNaisance + ", Reservations="
-				+ reservations + ", EvaluationArtistes=" + evaluationArtistes + ", Oeuvres=" + oeuvres + "]";
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 
 }
