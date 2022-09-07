@@ -26,8 +26,8 @@ public class EvaluationArtiste implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-	@OneToMany(mappedBy = "evaluationArtiste")
-	private SalleExposition SalleExposition;
+	@ManyToOne
+	private SalleExposition salleExposition;
 
 	@ManyToOne
 	private Artiste Artiste;
@@ -77,11 +77,11 @@ public class EvaluationArtiste implements Serializable {
 	}
 
 	public SalleExposition getSalleExposition() {
-		return SalleExposition;
+		return salleExposition;
 	}
 
 	public void setSalleExposition(SalleExposition salleExposition) {
-		SalleExposition = salleExposition;
+		this.salleExposition = salleExposition;
 	}
 
 	public Artiste getArtiste() {
@@ -95,7 +95,7 @@ public class EvaluationArtiste implements Serializable {
 	@Override
 	public String toString() {
 		return "EvaluationArtiste [Id=" + Id + ", Titre=" + Titre + ", Description=" + Description + ", Note=" + Note
-				+ ", date=" + date + ", SalleExposition=" + SalleExposition + ", Artiste=" + Artiste + "]";
+				+ ", date=" + date + ", SalleExposition=" + salleExposition + ", Artiste=" + Artiste + "]";
 	}
 
 }
