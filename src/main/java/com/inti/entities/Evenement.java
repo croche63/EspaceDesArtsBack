@@ -1,6 +1,6 @@
 package com.inti.entities;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
