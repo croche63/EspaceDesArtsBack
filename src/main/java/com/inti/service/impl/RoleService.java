@@ -30,4 +30,15 @@ public class RoleService implements IRoleService {
 
 	}
 
+	@Override
+	public Role findOne(Long id) {
+		return RoleRepository.findById(id).get();
+	}
+
+	@Override
+	public Role findByLibelle(String libelle) {
+		return RoleRepository.findByLibelle(libelle);
+	}
+	
+	
 }

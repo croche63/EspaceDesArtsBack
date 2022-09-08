@@ -8,4 +8,6 @@ import com.inti.entities.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
+	Role findByLibelle(String libelle);
+
 }
