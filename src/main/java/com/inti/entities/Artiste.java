@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,12 +24,15 @@ public class Artiste extends Utilisateur {
 	private Date dateNaisance;
 	private Adresse adresse;
 
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Oeuvre> oeuvres = new HashSet<>();
 

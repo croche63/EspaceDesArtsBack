@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,8 +33,11 @@ public class Reservation {
 	@Temporal(TemporalType.DATE)
 	private Date dateFin;
 	
+	
+	
 	@OneToMany(mappedBy = "reservation")
 	private List<Evenement> evenement = new ArrayList<>();
+	@Transient
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
 	@ManyToOne(fetch=FetchType.EAGER)
