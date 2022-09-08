@@ -10,4 +10,6 @@ import com.inti.entities.Proprietaire;
 public interface ProprietaireRepository extends JpaRepository<Proprietaire, Long> {
 	@Query(value = "SELECT count(*) FROM Proprietaire", nativeQuery = true)
 	int nbrProprietaires();
+
+	Proprietaire findByUsername(String username);
 }

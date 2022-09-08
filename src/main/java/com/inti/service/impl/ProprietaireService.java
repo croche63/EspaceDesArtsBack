@@ -43,4 +43,9 @@ public class ProprietaireService implements IProprietaireService {
 		return ProprietaireRepository.nbrProprietaires();
 	}
 
+	@Override
+	public Proprietaire findByUsername(String username) {
+		return ProprietaireRepository.findByUsername(username);
+	}
+
 }
