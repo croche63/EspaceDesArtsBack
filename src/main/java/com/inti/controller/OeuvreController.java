@@ -35,4 +35,8 @@ public class OeuvreController {
 		oeuvreService.delete(id);
 	}
 
+	@GetMapping("/Oeuvres/nom/{nom}")
+	public Oeuvre findByName(@PathVariable("nom") String nom) {
+		return oeuvreService.findByNom(nom);
+	}
 }
