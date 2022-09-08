@@ -14,4 +14,6 @@ public interface IProprietaireService {
 	void delete(Long idProprietaire);
 
 	int nbrProprietaires();
+
+	Proprietaire findByUsername(String username);
 }

@@ -24,6 +24,11 @@ public class ProprietaireController {
 	public List<Proprietaire> findAll() {
 		return ProprietaireService.findAll();
 	}
+	
+	@GetMapping("/Proprietaires/{username}")
+	public Proprietaire findByUsername(@PathVariable("username") String username) {
+		return ProprietaireService.findByUsername(username);
+	}
 
 	@PostMapping("/Proprietaires")
 	public Proprietaire saveProprietaire(@RequestBody Proprietaire Proprietaire) {
