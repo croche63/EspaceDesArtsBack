@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.models.Adresse;
 
 @Entity
+@DiscriminatorValue("Artiste")
 public class Artiste extends Utilisateur {
 	private String nationalite;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")

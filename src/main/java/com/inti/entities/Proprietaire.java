@@ -3,11 +3,13 @@ package com.inti.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@DiscriminatorValue("Proprietaire")
 public class Proprietaire extends Utilisateur {
 
 	@OneToMany(mappedBy = "proprietaire")

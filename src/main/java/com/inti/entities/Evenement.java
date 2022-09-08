@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Arrays;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public class Evenement {
 	@Lob
 	private Byte[] logo;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_reservation")
 	private Reservation reservation;
 
