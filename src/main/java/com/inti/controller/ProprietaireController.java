@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,4 +41,13 @@ public class ProprietaireController {
 		ProprietaireService.delete(id);
 	}
 
+	@PutMapping("/Proprietaire/{id}")
+	public void update(@RequestBody Proprietaire proprietaire) {
+		Proprietaire current_proprietaire = 
+				ProprietaireService.findOne(proprietaire.getId());
+		current_proprietaire.setNom(proprietaire.getNom());
+		current_proprietaire.setPrenom(proprietaire.getPrenom());
+		// etc..
+		ProprietaireService.save(current_proprietaire);
+	}
 }

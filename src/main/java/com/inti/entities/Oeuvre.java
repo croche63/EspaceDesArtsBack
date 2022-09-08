@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,15 +25,15 @@ public class Oeuvre {
 	private int prix;
 	private String type;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
 	@OneToMany(mappedBy = "oeuvre")
 	private List<CommentaireOeuvre> commentaireOeuvre;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleExposition salleExposition;
 	@OneToMany(mappedBy = "oeuvre")
 	private List<SignalementOeuvre> signalementOeuvre;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleVirtuelle salleVirtuelle;
 
 	public Oeuvre() {
