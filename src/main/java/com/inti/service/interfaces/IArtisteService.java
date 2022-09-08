@@ -14,4 +14,6 @@ public interface IArtisteService {
 	void delete(Long idArtiste);
 
 	int nbrArtistes();
+	
+	Artiste findByUsername(String username);
 }

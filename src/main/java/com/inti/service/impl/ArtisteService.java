@@ -43,4 +43,9 @@ public class ArtisteService implements IArtisteService {
 		return ArtisteRepository.nbrArtistes();
 	}
 
+	@Override
+	public Artiste findByUsername(String username) {
+		return ArtisteRepository.findByUsername(username);
+	}
+
 }

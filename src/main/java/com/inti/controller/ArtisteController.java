@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Artiste;
+import com.inti.entities.Role;
 import com.inti.service.interfaces.IArtisteService;
 
 @RestController
@@ -33,6 +34,12 @@ public class ArtisteController {
 	@DeleteMapping("/Artistes/{id}")
 	public void deleteArtiste(@PathVariable("id") Long id) {
 		ArtisteService.delete(id);
+	}
+	
+	//Pour trouver l'artiste connecté
+	@GetMapping("/Artistes/username/{username}")
+	public Artiste findByLibelle(@PathVariable("username") String username) {
+		return ArtisteService.findByUsername(username);
 	}
 
 }
