@@ -48,7 +48,7 @@ public class UtilisateurController {
 			@RequestParam("email") String email,
 			@RequestParam("numeroTel") String numeroTel,
 		//	@RequestParam("roles") Set<Role> roles, 
-			@RequestParam("image") MultipartFile image) {
+			@RequestParam(name="image", required = false) MultipartFile image) {
 		try {
 			Utilisateur currentUser = new Utilisateur();
 			currentUser.setNom(nom);
@@ -58,10 +58,13 @@ public class UtilisateurController {
 			currentUser.setEmail(email);
 			currentUser.setNumeroTel(numeroTel);
 		//	currentUser.setRoles(roles);
-			currentUser.setImage(image.getBytes());
+			//Sauvegarder image que si on en a envoyé une
+			if(image != null) {
+				currentUser.setImage(image.getBytes());
+			}
 			utilisateurService.save(currentUser);
 
-			return "File uploaded successfully! filename=" + image.getOriginalFilename();
+			return "User created successfully! ";
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return "Fail! maybe you had uploaded the file before or the file's size > 500KB";

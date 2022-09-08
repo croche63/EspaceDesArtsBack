@@ -4,21 +4,13 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class Adresse {
-	private int numeroRue;
+	private Long numeroRue;
 	private String nomRue;
-	private int codePostal;
+	private Long codePostal;
 	private String ville;
 	private String pays;
 
 	public Adresse() {
-	}
-
-	public int getNumeroRue() {
-		return numeroRue;
-	}
-
-	public void setNumeroRue(int numeroRue) {
-		this.numeroRue = numeroRue;
 	}
 
 	public String getNomRue() {
@@ -29,11 +21,19 @@ public class Adresse {
 		this.nomRue = nomRue;
 	}
 
-	public int getCodePostal() {
+	public Long getNumeroRue() {
+		return numeroRue;
+	}
+
+	public void setNumeroRue(Long numeroRue) {
+		this.numeroRue = numeroRue;
+	}
+
+	public Long getCodePostal() {
 		return codePostal;
 	}
 
-	public void setCodePostal(int codePostal) {
+	public void setCodePostal(Long codePostal) {
 		this.codePostal = codePostal;
 	}
 
