@@ -10,4 +10,6 @@ import com.inti.entities.Artiste;
 public interface ArtisteRepository extends JpaRepository<Artiste, Long> {
 	@Query(value = "SELECT count(*) FROM Artiste", nativeQuery = true)
 	int nbrArtistes();
+	
+	Artiste findByUsername (String username);
 }

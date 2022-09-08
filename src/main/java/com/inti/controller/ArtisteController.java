@@ -34,5 +34,11 @@ public class ArtisteController {
 	public void deleteArtiste(@PathVariable("id") Long id) {
 		ArtisteService.delete(id);
 	}
+	
+	//Pour trouver l'artiste connecté
+	@GetMapping("/Artistes/username/{username}")
+	public Artiste findByUsername(@PathVariable("username") String username) {
+		return ArtisteService.findByUsername(username);
+	}
 
 }
