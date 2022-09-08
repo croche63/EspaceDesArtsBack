@@ -15,4 +15,6 @@ public interface IOeuvreService {
 
 	int nbrOeuvre();
 
+	Oeuvre findByNom(String nom);
+
 }

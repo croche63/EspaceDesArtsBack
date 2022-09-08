@@ -44,4 +44,10 @@ public class OeuvreService implements IOeuvreService {
 		return oeuvreRepository.nbrOeuvre();
 	}
 
+	@Override
+	public Oeuvre findByNom(String nom) {
+		// TODO Auto-generated method stub
+		return oeuvreRepository.findByNom(nom);
+	}
+
 }
