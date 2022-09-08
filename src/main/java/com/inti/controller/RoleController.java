@@ -25,6 +25,11 @@ public class RoleController {
 		return RoleService.findAll();
 	}
 
+	@GetMapping("/Roles/{id}")
+	public Role findOne(@PathVariable("id") Long id) {
+		return RoleService.findOne(id);
+	}
+
 	@PostMapping("/Roles")
 	public Role saveRole(@RequestBody Role Role) {
 		return RoleService.save(Role);
@@ -35,4 +40,9 @@ public class RoleController {
 		RoleService.delete(id);
 	}
 
+	@GetMapping("/Roles/libelle/{libelle}")
+	public Role findByLibelle(@PathVariable("libelle") String libelle) {
+		return RoleService.findByLibelle(libelle);
+	}
+	
 }

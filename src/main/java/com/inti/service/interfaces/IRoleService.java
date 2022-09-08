@@ -10,5 +10,9 @@ public interface IRoleService {
 	Role save(Role Role);
 
 	void delete(Long id);
+	
+	Role findOne(Long id);
+
+	Role findByLibelle(String libelle);
 
 }
