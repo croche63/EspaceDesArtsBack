@@ -3,6 +3,8 @@ package com.inti.service.impl;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,6 +19,7 @@ import com.inti.models.UtilisateurDetail;
 import com.inti.service.interfaces.IUtilisateurService;
 
 @Service
+@Transactional
 public class AppUserDetailsService implements UserDetailsService {
 	@Autowired
 	IUtilisateurService utilisateurService;
