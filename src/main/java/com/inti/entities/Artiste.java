@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.models.Adresse;
 
 @Entity
@@ -20,7 +21,8 @@ public class Artiste extends Utilisateur {
 	@Temporal(TemporalType.DATE)
 	private Date dateNaisance;
 	private Adresse adresse;
-
+	
+	//@JsonIgnore
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
 
