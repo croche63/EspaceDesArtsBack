@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -30,11 +31,11 @@ public class Reservation {
 	
 	@OneToMany(mappedBy = "reservation")
 	private List<Evenement> evenement = new ArrayList<>();
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleExposition salleExposition;
 
 	public Reservation() {}
