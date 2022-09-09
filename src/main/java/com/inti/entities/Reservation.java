@@ -22,6 +22,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 public class Reservation {
 	
@@ -44,7 +45,6 @@ public class Reservation {
 	private Artiste artiste;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JsonIgnore
 	private SalleExposition salleExposition;
 
 	public Reservation() {}
@@ -83,6 +83,7 @@ public class Reservation {
 	}
 
 
+	@JsonIgnore
 	public Artiste getArtiste() {
 		return artiste;
 	}
