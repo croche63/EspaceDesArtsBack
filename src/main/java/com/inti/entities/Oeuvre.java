@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Oeuvre {
@@ -27,12 +28,18 @@ public class Oeuvre {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
+	
+	@Transient
 	@OneToMany(mappedBy = "oeuvre")
 	private List<CommentaireOeuvre> commentaireOeuvre;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleExposition salleExposition;
+	
+	@Transient
 	@OneToMany(mappedBy = "oeuvre")
 	private List<SignalementOeuvre> signalementOeuvre;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleVirtuelle salleVirtuelle;
 
