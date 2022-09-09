@@ -49,6 +49,7 @@ public class Utilisateur implements Serializable {
 	private Set<CommentaireSalleExposition> commentaireSalleExpositions = new HashSet<>();
 	
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private Set<SignalementSalleExposition> signalementSalleExpositions = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
@@ -56,6 +57,7 @@ public class Utilisateur implements Serializable {
 	private Set<CommentaireOeuvre> commentaireOeuvres = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private Set<SignalementOeuvre> signalementOeuvres = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
@@ -63,6 +65,7 @@ public class Utilisateur implements Serializable {
 	private Set<CommentaireSalleVirtuelle> commentaireSalleVirtuelles = new HashSet<>();
 
 	@OneToMany(mappedBy = "utilisateur")
+	@JsonIgnore
 	private Set<SignalementSalleVirtuelle> signalementSalleVirtuelles = new HashSet<>();
 
 	@ManyToMany(fetch = FetchType.EAGER)

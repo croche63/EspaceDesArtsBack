@@ -35,7 +35,6 @@ public class SignalementSalleExposition implements Serializable {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "idUtilisateur")
-	@JsonIgnore
 	private Utilisateur utilisateur;
 
 	public SignalementSalleExposition() {
