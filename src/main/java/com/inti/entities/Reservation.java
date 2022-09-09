@@ -20,6 +20,8 @@ import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Reservation {
 	
@@ -37,30 +39,16 @@ public class Reservation {
 	@Transient
 	@OneToMany(mappedBy = "reservation")
 	private List<Evenement> evenement = new ArrayList<>();
-	
-	@Transient
-	@ManyToOne(fetch=FetchType.EAGER)
-	private Proprietaire proprietaire;
-	
+		
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
+	@JsonIgnore
 	private SalleExposition salleExposition;
 
 	public Reservation() {}
 
-	public Reservation(Long idReservation, Date dateDebut, Date dateFin, List<Evenement> evenement,
-			Proprietaire proprietaire, Artiste artiste, SalleExposition salleExposition) {
-		super();
-		this.idReservation = idReservation;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.evenement = evenement;
-		this.proprietaire = proprietaire;
-		this.artiste = artiste;
-		this.salleExposition = salleExposition;
-	}
 
 	public Long getIdReservation() {
 		return idReservation;
@@ -94,13 +82,6 @@ public class Reservation {
 		this.evenement = evenement;
 	}
 
-	public Proprietaire getProprietaire() {
-		return proprietaire;
-	}
-
-	public void setProprietaire(Proprietaire proprietaire) {
-		this.proprietaire = proprietaire;
-	}
 
 	public Artiste getArtiste() {
 		return artiste;
@@ -119,12 +100,6 @@ public class Reservation {
 		this.salleExposition = salleExposition;
 	}
 
-	@Override
-	public String toString() {
-		return "Reservation [idReservation=" + idReservation + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin
-				+ ", evenement=" + evenement + ", proprietaire=" + proprietaire + ", artiste=" + artiste
-				+ ", salleExposition=" + salleExposition + "]";
-	}
 
 }
 	

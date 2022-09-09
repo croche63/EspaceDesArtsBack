@@ -12,8 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class SignalementSalleVirtuelle implements Serializable {
@@ -32,6 +35,7 @@ public class SignalementSalleVirtuelle implements Serializable {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "idUtilisateur")
+	@JsonIgnore
 	private Utilisateur utilisateur;
 
 	public SignalementSalleVirtuelle() {
