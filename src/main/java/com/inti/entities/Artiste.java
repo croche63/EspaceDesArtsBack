@@ -9,10 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.models.Adresse;
 
 @Entity
@@ -23,14 +23,17 @@ public class Artiste extends Utilisateur {
 	@Temporal(TemporalType.DATE)
 	private Date dateNaisance;
 	private Adresse adresse;
-	
-	//@JsonIgnore
+
+
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Oeuvre> oeuvres = new HashSet<>();
 
