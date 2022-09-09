@@ -35,7 +35,7 @@ public class Artiste extends Utilisateur {
 	@JsonIgnore
 	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
-	@Transient
+	//@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Oeuvre> oeuvres = new HashSet<>();
 

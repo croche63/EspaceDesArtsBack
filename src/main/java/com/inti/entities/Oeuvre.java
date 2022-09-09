@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Oeuvre {
 
@@ -25,7 +27,8 @@ public class Oeuvre {
 	private Byte[] photoOeuvre;
 	private int prix;
 	private String type;
-
+	
+	@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
 	
