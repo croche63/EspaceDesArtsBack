@@ -19,6 +19,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.InheritanceType;
 import javax.persistence.DiscriminatorType;
 
@@ -40,21 +41,27 @@ public class Utilisateur implements Serializable {
 	@Lob
 	private byte[] image;
 
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<CommentaireSalleExposition> commentaireSalleExpositions = new HashSet<>();
-
+	
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<SignalementSalleExposition> signalementSalleExpositions = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<CommentaireOeuvre> commentaireOeuvres = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<SignalementOeuvre> signalementOeuvres = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<CommentaireSalleVirtuelle> commentaireSalleVirtuelles = new HashSet<>();
 
+	@Transient
 	@OneToMany(mappedBy = "utilisateur")
 	private Set<SignalementSalleVirtuelle> signalementSalleVirtuelles = new HashSet<>();
 

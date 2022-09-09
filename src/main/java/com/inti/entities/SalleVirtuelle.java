@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class SalleVirtuelle {
@@ -18,13 +19,19 @@ public class SalleVirtuelle {
 	private Long id;
 	private String libelle;
 	private String description;
-	// TODO Liens avec autres classes
+	
+	@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
 	private List<SignalementSalleVirtuelle> signalementSalleVirtuelle;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
 	private List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
 	private List<Oeuvre> oeuvre;
 	
