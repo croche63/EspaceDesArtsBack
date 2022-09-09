@@ -16,6 +16,8 @@ import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Evenement {
 	@Id
@@ -34,6 +36,7 @@ public class Evenement {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_reservation")
+	@JsonIgnore
 	private Reservation reservation;
 
 	public Evenement() {

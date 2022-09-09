@@ -10,13 +10,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @DiscriminatorValue("Proprietaire")
 public class Proprietaire extends Utilisateur {
-
-	@Transient
-	@OneToMany(mappedBy = "proprietaire")
-	private Set<Reservation> reservations = new HashSet<>();
 	
 	@Transient
 	@OneToOne(mappedBy = "proprietaire")
@@ -26,13 +24,6 @@ public class Proprietaire extends Utilisateur {
 		super();
 	}
 
-	public Set<Reservation> getReservations() {
-		return reservations;
-	}
-
-	public void setReservations(Set<Reservation> reservations) {
-		this.reservations = reservations;
-	}
 
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
@@ -42,9 +33,5 @@ public class Proprietaire extends Utilisateur {
 		this.salleExposition = salleExposition;
 	}
 
-	@Override
-	public String toString() {
-		return "Proprietaire [Reservations=" + reservations + ", SalleExposition=" + salleExposition + "]";
-	}
 
 }

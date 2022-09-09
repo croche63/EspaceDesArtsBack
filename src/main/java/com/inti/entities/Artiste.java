@@ -13,6 +13,7 @@ import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.models.Adresse;
 
 @Entity
@@ -31,6 +32,7 @@ public class Artiste extends Utilisateur {
 
 	@Transient
 	@OneToMany(mappedBy = "artiste")
+	@JsonIgnore
 	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
 	@Transient
