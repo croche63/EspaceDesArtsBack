@@ -33,7 +33,7 @@ public class SalleVirtuelle {
 	
 	@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
-	private List<Oeuvre> oeuvre;
+	private Artiste artiste;
 	
 	public SalleVirtuelle() {}
 
@@ -85,11 +85,11 @@ public class SalleVirtuelle {
 		this.proprietaire = proprietaire;
 	}
 
-	public List<Oeuvre> getOeuvre() {
-		return oeuvre;
+	public Artiste getArtiste() {
+		return artiste;
 	}
 
-	public void setOeuvre(List<Oeuvre> oeuvre) {
-		this.oeuvre = oeuvre;
+	public void setArtiste(Artiste artiste) {
+		this.artiste = artiste;
 	}	
 }
