@@ -24,7 +24,7 @@ public class Oeuvre {
 	private String nom;
 	private String information;
 	@Lob
-	private Byte[] photoOeuvre;
+	private byte[] image;
 	private int prix;
 	private String type;
 	
@@ -49,14 +49,14 @@ public class Oeuvre {
 	public Oeuvre() {
 	}
 
-	public Oeuvre(Long idOeuvre, String nom, String information, Byte[] photoOeuvre, int prix, String type,
+	public Oeuvre(Long idOeuvre, String nom, String information, byte[] image, int prix, String type,
 			Artiste artiste, List<CommentaireOeuvre> commentaireOeuvre, SalleExposition salleExposition,
 			List<SignalementOeuvre> signalementOeuvre, SalleVirtuelle salleVirtuelle) {
 		super();
 		this.idOeuvre = idOeuvre;
 		this.nom = nom;
 		this.information = information;
-		this.photoOeuvre = photoOeuvre;
+		this.image = image;
 		this.prix = prix;
 		this.type = type;
 		this.artiste = artiste;
@@ -90,12 +90,12 @@ public class Oeuvre {
 		this.information = information;
 	}
 
-	public Byte[] getPhotoOeuvre() {
-		return photoOeuvre;
+	public byte[] getImage() {
+		return image;
 	}
 
-	public void setPhotoOeuvre(Byte[] photoOeuvre) {
-		this.photoOeuvre = photoOeuvre;
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	public int getPrix() {
@@ -157,7 +157,7 @@ public class Oeuvre {
 	@Override
 	public String toString() {
 		return "Oeuvre [idOeuvre=" + idOeuvre + ", nom=" + nom + ", information=" + information + ", photoOeuvre="
-				+ Arrays.toString(photoOeuvre) + ", prix=" + prix + ", type=" + type + ", artiste=" + artiste
+				+ Arrays.toString(image) + ", prix=" + prix + ", type=" + type + ", artiste=" + artiste
 				+ ", commentaireOeuvre=" + commentaireOeuvre + ", salleExposition=" + salleExposition
 				+ ", signalementOeuvre=" + signalementOeuvre + ", salleVirtuelle=" + salleVirtuelle + "]";
 	}
