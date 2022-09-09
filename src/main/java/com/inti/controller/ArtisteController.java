@@ -36,7 +36,7 @@ public class ArtisteController {
 	}
 	
 	//Pour trouver l'artiste connecté
-	@GetMapping("/Artistes/username/{username}")
+	@GetMapping("/Artistes/{username}")
 	public Artiste findByUsername(@PathVariable("username") String username) {
 		return ArtisteService.findByUsername(username);
 	}

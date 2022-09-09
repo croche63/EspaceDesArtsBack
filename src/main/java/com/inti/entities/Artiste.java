@@ -24,6 +24,7 @@ public class Artiste extends Utilisateur {
 	private Date dateNaisance;
 	private Adresse adresse;
 
+
 	@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
