@@ -34,14 +34,17 @@ public class Reservation {
 	private Date dateFin;
 	
 	
-	
+	@Transient
 	@OneToMany(mappedBy = "reservation")
 	private List<Evenement> evenement = new ArrayList<>();
+	
 	@Transient
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private SalleExposition salleExposition;
 

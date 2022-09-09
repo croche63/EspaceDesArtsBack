@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 
 import com.inti.models.Adresse;
 
@@ -25,16 +26,27 @@ public class SalleExposition {
 	private String dimensionSalle;
 	@Embedded
 	private Adresse adresse;
+	
 	@OneToOne
 	private Proprietaire proprietaire;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<SignalementSalleExposition> signalementSalleExposition;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<Reservation> reservation;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<EvaluationArtiste> evaluationArtiste;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<CommentaireSalleExposition> commentaireSalleExposition;
+	
+	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<Oeuvre> oeuvre;
 		
