@@ -9,7 +9,7 @@ public interface IOeuvreService {
 
 	Oeuvre findOne(Long idOeuvre);
 
-	Oeuvre save(Oeuvre oeuvre);
+	Oeuvre save(Oeuvre oeuvre, String username);
 
 	void delete(Long idOeuvre);
 

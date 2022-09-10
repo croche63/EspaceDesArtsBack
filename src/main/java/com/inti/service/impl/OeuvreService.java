@@ -27,7 +27,7 @@ public class OeuvreService implements IOeuvreService {
 	}
 
 	@Override
-	public Oeuvre save(Oeuvre oeuvre) {
+	public Oeuvre save(Oeuvre oeuvre, String username) {
 		// TODO Auto-generated method stub
 		return oeuvreRepository.save(oeuvre);
 	}

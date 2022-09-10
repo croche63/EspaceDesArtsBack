@@ -28,7 +28,7 @@ public class Oeuvre {
 	private int prix;
 	private String type;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
 	
@@ -113,7 +113,8 @@ public class Oeuvre {
 	public void setType(String type) {
 		this.type = type;
 	}
-
+	
+	@JsonIgnore
 	public Artiste getArtiste() {
 		return artiste;
 	}
