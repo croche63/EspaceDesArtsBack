@@ -37,10 +37,10 @@ public class OeuvreController {
 	}*/
 	
 	// Nouvelle méthode de sauvegarde:
-		@PostMapping("/Oeuvres")
+		@PostMapping("/Oeuvres/{username}")
 		public String saveOeuvre(@RequestParam("nom") String nom, @RequestParam("type") String type,
-				@RequestParam("information") String information, @RequestParam("prix") int prix,
-				@RequestParam("fileU") MultipartFile image) { //+ @RequestParam("username") String username
+				@RequestParam("information") String information, @RequestParam("prix") int prix, @PathVariable("username") String username,
+				@RequestParam("fileU") MultipartFile image) { 
 			try {
 				Oeuvre currentOeuvre = new Oeuvre();
 				currentOeuvre.setNom(nom);
@@ -49,10 +49,10 @@ public class OeuvreController {
 				currentOeuvre.setPrix(prix);
 				currentOeuvre.setImage(image.getBytes());
 				
-				/*Artiste artiste = artisteService.findByUsername(username);
-				currentOeuvre.setArtiste(artiste);*/
+				Artiste artiste = artisteService.findByUsername(username);
+				currentOeuvre.setArtiste(artiste);
 				
-				oeuvreService.save(currentOeuvre);
+				oeuvreService.save(currentOeuvre, username);
 				return "Oeuvre ajouté à votre portfolio avec success!";
 			} catch (Exception ex) {
 				ex.printStackTrace();
