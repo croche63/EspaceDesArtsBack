@@ -9,7 +9,7 @@ public interface IReservationService {
 
 	Reservation findOne(Long idReservation);
 
-	Reservation save(Reservation reservation);
+	Reservation save(Reservation reservation, String username);
 
 	void delete(Long idReservation);
 
