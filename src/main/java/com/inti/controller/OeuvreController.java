@@ -65,7 +65,7 @@ public class OeuvreController {
 		oeuvreService.delete(id);
 	}
 
-	@GetMapping("/Oeuvres/nom/{nom}")
+	@GetMapping("/Oeuvres/{nom}")
 	public Oeuvre findByName(@PathVariable("nom") String nom) {
 		return oeuvreService.findByNom(nom);
 	}

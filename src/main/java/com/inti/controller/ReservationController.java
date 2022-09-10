@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Artiste;
 import com.inti.entities.Reservation;
+import com.inti.service.interfaces.IArtisteService;
 import com.inti.service.interfaces.IReservationService;
 
 @RestController
@@ -20,14 +22,19 @@ public class ReservationController {
 	@Autowired
 	IReservationService reservationService;
 	
+	@Autowired
+	IArtisteService artisteService;
+	
 	@GetMapping("/Reservations")
 	public List<Reservation> findAll(){
 		return reservationService.findAll();
 	}
 	
-	@PostMapping("/Reservations")
-	public Reservation saveReservation(@RequestBody Reservation reservation) {
-		return reservationService.save(reservation);
+	@PostMapping("/Reservations/{username}")
+	public Reservation saveReservation(@RequestBody Reservation reservation, @PathVariable("username") String username) {
+		Artiste artiste = artisteService.findByUsername(username);
+		reservation.setArtiste(artiste);
+		return reservationService.save(reservation, username);
 	}
 	
 	@DeleteMapping("/Reservations/{id}")
