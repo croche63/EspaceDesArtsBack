@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -37,6 +38,11 @@ public class Artiste extends Utilisateur {
 	//@Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Oeuvre> oeuvres = new HashSet<>();
+	
+	@Transient
+	@OneToOne(mappedBy = "artiste")
+	private SalleVirtuelle salleVirtuelle;
+	
 
 	public Artiste() {
 		super();
@@ -89,6 +95,14 @@ public class Artiste extends Utilisateur {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public SalleVirtuelle getSalleVirtuelle() {
+		return salleVirtuelle;
+	}
+
+	public void setSalleVirtuelle(SalleVirtuelle salleVirtuelle) {
+		this.salleVirtuelle = salleVirtuelle;
 	}
 
 }
