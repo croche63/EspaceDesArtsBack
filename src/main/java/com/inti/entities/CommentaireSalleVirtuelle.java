@@ -92,6 +92,7 @@ public class CommentaireSalleVirtuelle implements Serializable {
 		this.date = date;
 	}
 
+	@JsonIgnore
 	public SalleVirtuelle getSalleVirtuelle() {
 		return salleVirtuelle;
 	}

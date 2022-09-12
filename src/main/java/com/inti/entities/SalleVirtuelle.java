@@ -25,7 +25,7 @@ public class SalleVirtuelle {
 	@OneToMany(mappedBy = "salleVirtuelle")
 	private List<SignalementSalleVirtuelle> signalementSalleVirtuelle;
 	
-	@Transient
+	//@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
 	private List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle;
 	

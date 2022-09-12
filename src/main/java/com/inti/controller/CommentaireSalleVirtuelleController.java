@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.CommentaireSalleVirtuelle;
+import com.inti.entities.SalleVirtuelle;
 import com.inti.service.impl.CommentaireSalleVirtuelleService;
+import com.inti.service.impl.SalleVirtuelleService;
 
 
 @RestController
@@ -21,6 +23,9 @@ public class CommentaireSalleVirtuelleController {
 	
 	@Autowired
 	CommentaireSalleVirtuelleService commentaireSalleVirtuelleService;
+	
+	@Autowired
+	SalleVirtuelleService salleVirtuelleService;
 	
 	@GetMapping("/commentaireSalleVirt")
 	public List<CommentaireSalleVirtuelle> findAll() {
@@ -33,8 +38,11 @@ public class CommentaireSalleVirtuelleController {
 	}
 
 
-	@PostMapping("/commentaireSalleVirt")
-	public CommentaireSalleVirtuelle saveCommSalleVirt(@RequestBody CommentaireSalleVirtuelle commentaireSalleVirtuelle) {
+	@PostMapping("/commentaireSalleVirt/{idSalleVirt}")
+	public CommentaireSalleVirtuelle saveCommSalleVirt(@RequestBody CommentaireSalleVirtuelle commentaireSalleVirtuelle,
+			@PathVariable("idSalleVirt") Long id) {
+		SalleVirtuelle salleVirtuelle = salleVirtuelleService.findById(id);
+		commentaireSalleVirtuelle.setSalleVirtuelle(salleVirtuelle);
 		return commentaireSalleVirtuelleService.save(commentaireSalleVirtuelle);
 	}
 
