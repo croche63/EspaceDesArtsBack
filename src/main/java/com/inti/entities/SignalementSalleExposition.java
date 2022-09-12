@@ -38,6 +38,7 @@ public class SignalementSalleExposition implements Serializable {
 	private Utilisateur utilisateur;
 
 	public SignalementSalleExposition() {
+		date = new Date();
 
 	}
 
