@@ -40,6 +40,7 @@ public class CommentaireSalleVirtuelle implements Serializable {
 	private Utilisateur utilisateur;
 
 	public CommentaireSalleVirtuelle() {
+		date = new Date();
 
 	}
 

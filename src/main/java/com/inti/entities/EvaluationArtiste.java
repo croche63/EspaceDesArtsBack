@@ -34,7 +34,7 @@ public class EvaluationArtiste implements Serializable {
 	private Artiste artiste;
 
 	public EvaluationArtiste() {
-		super();
+		date = new Date();
 	}
 
 	public Long getId() {

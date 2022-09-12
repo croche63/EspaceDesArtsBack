@@ -38,6 +38,7 @@ public class SignalementSalleVirtuelle implements Serializable {
 	private Utilisateur utilisateur;
 
 	public SignalementSalleVirtuelle() {
+		date = new Date();
 
 	}
 
