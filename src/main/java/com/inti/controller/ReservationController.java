@@ -36,7 +36,8 @@ public class ReservationController {
 	}
 	
 	@PostMapping("/Reservations/{username}/{idSalle}")
-	public Reservation saveReservation(@RequestBody Reservation reservation, @PathVariable("username") String username, @PathVariable("idSalle") String id) {
+	public Reservation saveReservation(@RequestBody Reservation reservation, @PathVariable("username") String username, 
+			@PathVariable("idSalle") String id) {
 		Artiste artiste = artisteService.findByUsername(username);
 		reservation.setArtiste(artiste);
 		
