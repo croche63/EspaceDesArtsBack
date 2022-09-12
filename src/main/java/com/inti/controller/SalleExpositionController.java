@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.inti.entities.Artiste;
+import com.inti.entities.Oeuvre;
 import com.inti.entities.SalleExposition;
 import com.inti.service.interfaces.ISalleExpositionService;
 
@@ -35,6 +40,23 @@ public class SalleExpositionController {
 		return SalleExpositionService.save(SalleExposition);
 	}
 
+	@PutMapping("/SalleExpositions/{idSalleExpo}") // http://localhost:9090/utilisateurs/2
+	public String updateLogo(@RequestParam("logo") MultipartFile logo, @PathVariable("idSalleExpo") Long idSalleExpo) { 
+		SalleExposition currentSalleExpo = SalleExpositionService.findById(idSalleExpo);
+		try {
+			currentSalleExpo.setLogo(logo.getBytes());
+			SalleExpositionService.save(currentSalleExpo);
+			return "Logo ajouté avec succes!";
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return "Erreur en ajoutant le logo!";
+		}
+
+	}
+
+	
+	
+	
 	@DeleteMapping("/SalleExpositions/{id}")
 	public void deleteSalleExposition(@PathVariable("id") Long id) {
 		SalleExpositionService.delete(id);
