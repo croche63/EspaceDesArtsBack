@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 @Entity
@@ -31,8 +32,7 @@ public class SalleVirtuelle {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
 	
-	@Transient
-	@OneToMany(mappedBy = "salleVirtuelle")
+	@OneToOne
 	private Artiste artiste;
 	
 	public SalleVirtuelle() {}
