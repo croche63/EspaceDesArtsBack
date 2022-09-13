@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.inti.models.Adresse;
 
 @Entity
@@ -27,6 +28,7 @@ public class SalleExposition {
 	@Embedded
 	private Adresse adresse;
 	
+	@JsonIgnore
 	@OneToOne
 	private Proprietaire proprietaire;
 	

@@ -35,7 +35,6 @@ public class Reservation {
 	private Date dateFin;
 	
 	
-	@Transient
 	@OneToMany(mappedBy = "reservation")
 	private List<Evenement> evenement = new ArrayList<>();
 		
