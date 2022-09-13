@@ -41,7 +41,9 @@ public class UtilisateurController {
 
 	@PostMapping("/utilisateurs") 
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
+		utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
 		return utilisateurService.save(utilisateur);
+		
 	}
 	// Nouvelle méthode de sauvegarde:
 	/*
