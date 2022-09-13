@@ -97,9 +97,5 @@ public class SignalementSalleVirtuelle implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "SignalementSalleVirtuelle [id=" + id + ", titre=" + titre + ", description=" + description + "]";
-	}
 
 }

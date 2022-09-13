@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.CommentaireOeuvre;
+import com.inti.entities.Oeuvre;
+import com.inti.entities.Utilisateur;
 import com.inti.service.impl.CommentaireOeuvreService;
+import com.inti.service.impl.OeuvreService;
+import com.inti.service.impl.UtilisateurService;
 
 @RestController
 @CrossOrigin
@@ -20,6 +24,12 @@ public class CommentaireOeuvreController {
 	
 	@Autowired
 	CommentaireOeuvreService commentaireOeuvreService;
+	
+	@Autowired
+	OeuvreService oeuvreService;
+	
+	@Autowired
+	UtilisateurService utilisateurService;
 	
 	@GetMapping("/commentaireOeuvre")
 	public List<CommentaireOeuvre> findAll() {
@@ -32,8 +42,14 @@ public class CommentaireOeuvreController {
 	}
 
 
-	@PostMapping("/commentaireOeuvre")
-	public CommentaireOeuvre saveCommOeuvre(@RequestBody CommentaireOeuvre commentaireOeuvre) {
+	@PostMapping("/commentaireOeuvre/{idOeuvre}/{username}")
+	public CommentaireOeuvre saveCommOeuvre(@RequestBody CommentaireOeuvre commentaireOeuvre, 
+			@PathVariable("idOeuvre") String id, @PathVariable("username") String username) {
+		Long idOeuvre = Long.parseLong(id);
+		Oeuvre oeuvre = oeuvreService.findOne(idOeuvre);
+		Utilisateur utilisateur = utilisateurService.findByUsername(username);
+		commentaireOeuvre.setOeuvre(oeuvre);
+		commentaireOeuvre.setUtilisateur(utilisateur);	
 		return commentaireOeuvreService.save(commentaireOeuvre);
 	}
 

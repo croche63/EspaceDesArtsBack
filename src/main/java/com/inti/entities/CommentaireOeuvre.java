@@ -107,10 +107,6 @@ public class CommentaireOeuvre implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "CommentaireOeuvre [id=" + id + ", titre=" + titre + ", description=" + description + ", note=" + note
-				+ "]";
-	}
+	
 
 }

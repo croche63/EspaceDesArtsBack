@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.SalleVirtuelle;
 import com.inti.entities.SignalementSalleVirtuelle;
+import com.inti.entities.Utilisateur;
 import com.inti.service.impl.SalleVirtuelleService;
 import com.inti.service.impl.SignalementSalleVirtuelleService;
+import com.inti.service.impl.UtilisateurService;
 
 @RestController
 @CrossOrigin
@@ -25,6 +27,9 @@ public class SignalementSalleVirtuelleController {
 	
 	@Autowired
 	SalleVirtuelleService salleVirtuelleService;
+	
+	@Autowired
+	UtilisateurService utilisateurService;
 	
 	@GetMapping("/signalementSalleVirt")
 	public List<SignalementSalleVirtuelle> findAll() {
@@ -37,10 +42,12 @@ public class SignalementSalleVirtuelleController {
 	}
 
 
-	@PostMapping("/signalementSalleVirt/{idSalleVirt}")
+	@PostMapping("/signalementSalleVirt/{idSalleVirt}/{username}")
 	public SignalementSalleVirtuelle saveSigSalleVirt(@RequestBody SignalementSalleVirtuelle signalementSalleVirtuelle,
-			@PathVariable("idSalleVirt") Long id) {
+			@PathVariable("idSalleVirt") Long id, @PathVariable("username") String username) {
 		SalleVirtuelle salleVirtuelle = salleVirtuelleService.findById(id);
+		Utilisateur utilisateur = utilisateurService.findByUsername(username);
+		signalementSalleVirtuelle.setUtilisateur(utilisateur);
 		signalementSalleVirtuelle.setSalleVirtuelle(salleVirtuelle);
 		return signalementSalleVirtuelleService.save(signalementSalleVirtuelle);
 	}
