@@ -97,10 +97,5 @@ public class SignalementSalleExposition implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "SignalementSalleExposition [id=" + id + ", titre=" + titre + ", description=" + description + ", date="
-				+ date + "]";
-	}
 
 }

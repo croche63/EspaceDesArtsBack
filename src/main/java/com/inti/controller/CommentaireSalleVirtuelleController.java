@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.CommentaireSalleVirtuelle;
 import com.inti.entities.SalleVirtuelle;
+import com.inti.entities.Utilisateur;
 import com.inti.service.impl.CommentaireSalleVirtuelleService;
 import com.inti.service.impl.SalleVirtuelleService;
+import com.inti.service.impl.UtilisateurService;
 
 
 @RestController
@@ -27,6 +29,9 @@ public class CommentaireSalleVirtuelleController {
 	@Autowired
 	SalleVirtuelleService salleVirtuelleService;
 	
+	@Autowired
+	UtilisateurService utilisateurService;
+	
 	@GetMapping("/commentaireSalleVirt")
 	public List<CommentaireSalleVirtuelle> findAll() {
 		return commentaireSalleVirtuelleService.findAll();
@@ -38,10 +43,12 @@ public class CommentaireSalleVirtuelleController {
 	}
 
 
-	@PostMapping("/commentaireSalleVirt/{idSalleVirt}")
+	@PostMapping("/commentaireSalleVirt/{idSalleVirt}/{username}")
 	public CommentaireSalleVirtuelle saveCommSalleVirt(@RequestBody CommentaireSalleVirtuelle commentaireSalleVirtuelle,
-			@PathVariable("idSalleVirt") Long id) {
+			@PathVariable("idSalleVirt") Long id, @PathVariable("username") String username) {
 		SalleVirtuelle salleVirtuelle = salleVirtuelleService.findById(id);
+		Utilisateur utilisateur = utilisateurService.findByUsername(username);
+		commentaireSalleVirtuelle.setUtilisateur(utilisateur);
 		commentaireSalleVirtuelle.setSalleVirtuelle(salleVirtuelle);
 		return commentaireSalleVirtuelleService.save(commentaireSalleVirtuelle);
 	}

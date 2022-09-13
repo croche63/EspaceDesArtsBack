@@ -109,10 +109,6 @@ public class CommentaireSalleVirtuelle implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "CommentaireSalleVirtuelle [id=" + id + ", titre=" + titre + ", description=" + description + ", note="
-				+ note + ", date=" + date + ", utilisateur=" + utilisateur + "]";
-	}
+
 
 }

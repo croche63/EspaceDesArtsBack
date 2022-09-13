@@ -97,10 +97,5 @@ public class SignalementOeuvre implements Serializable {
 		this.utilisateur = utilisateur;
 	}
 
-	@Override
-	public String toString() {
-		return "SignalementOeuvre [id=" + id + ", titre=" + titre + ", description=" + description + ", date=" + date
-				+ "]";
-	}
 
 }
