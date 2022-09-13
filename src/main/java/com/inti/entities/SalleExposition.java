@@ -28,7 +28,7 @@ public class SalleExposition {
 	@Embedded
 	private Adresse adresse;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne
 	private Proprietaire proprietaire;
 	
@@ -94,6 +94,7 @@ public class SalleExposition {
 		this.adresse = adresse;
 	}
 
+	@JsonIgnore
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
