@@ -32,7 +32,6 @@ public class CommentaireSalleVirtuelle implements Serializable {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "idSalleVirtuelle")
-	@JsonIgnore
 	private SalleVirtuelle salleVirtuelle;
 
 	@ManyToOne(fetch=FetchType.EAGER)

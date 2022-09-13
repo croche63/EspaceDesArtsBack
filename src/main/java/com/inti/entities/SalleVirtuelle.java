@@ -23,11 +23,11 @@ public class SalleVirtuelle {
 	
 	@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
-	private List<SignalementSalleVirtuelle> signalementSalleVirtuelle;
+	private List<SignalementSalleVirtuelle> signalementSalleVirtuelles;
 	
 	//@Transient
 	@OneToMany(mappedBy = "salleVirtuelle")
-	private List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle;
+	private List<CommentaireSalleVirtuelle> commentaireSalleVirtuelles;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Proprietaire proprietaire;
@@ -62,19 +62,19 @@ public class SalleVirtuelle {
 	}
 
 	public List<SignalementSalleVirtuelle> getSignalementSalleVirtuelle() {
-		return signalementSalleVirtuelle;
+		return signalementSalleVirtuelles;
 	}
 
 	public void setSignalementSalleVirtuelle(List<SignalementSalleVirtuelle> signalementSalleVirtuelle) {
-		this.signalementSalleVirtuelle = signalementSalleVirtuelle;
+		this.signalementSalleVirtuelles = signalementSalleVirtuelle;
 	}
 
 	public List<CommentaireSalleVirtuelle> getCommentaireSalleVirtuelle() {
-		return commentaireSalleVirtuelle;
+		return commentaireSalleVirtuelles;
 	}
 
 	public void setCommentaireSalleVirtuelle(List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle) {
-		this.commentaireSalleVirtuelle = commentaireSalleVirtuelle;
+		this.commentaireSalleVirtuelles = commentaireSalleVirtuelle;
 	}
 
 	public Proprietaire getProprietaire() {
