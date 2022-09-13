@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @DiscriminatorValue("Proprietaire")
 public class Proprietaire extends Utilisateur {
 	
-	@Transient
+
 	@OneToOne(mappedBy = "proprietaire")
 	private SalleExposition salleExposition;
 
