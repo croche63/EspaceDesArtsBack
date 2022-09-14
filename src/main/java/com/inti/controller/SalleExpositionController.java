@@ -16,7 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.inti.entities.Artiste;
 import com.inti.entities.Oeuvre;
+import com.inti.entities.Proprietaire;
 import com.inti.entities.SalleExposition;
+import com.inti.models.Adresse;
+import com.inti.service.interfaces.IProprietaireService;
 import com.inti.service.interfaces.ISalleExpositionService;
 
 @RestController
@@ -24,6 +27,9 @@ import com.inti.service.interfaces.ISalleExpositionService;
 public class SalleExpositionController {
 	@Autowired
 	ISalleExpositionService SalleExpositionService;
+	
+	@Autowired
+	IProprietaireService proprietaireService;
 
 	@GetMapping("/SalleExpositions")
 	public List<SalleExposition> findAll() {
@@ -39,6 +45,39 @@ public class SalleExpositionController {
 	public SalleExposition saveSalleExposition(@RequestBody SalleExposition SalleExposition) {
 		return SalleExpositionService.save(SalleExposition);
 	}
+	
+	// Nouvelle méthode de sauvegarde:
+			@PostMapping("/SalleExpositions/{username}")
+			public String saveSalleExposition(@RequestParam("libelle") String libelle, @RequestParam("dimensionSalle") String dimensionSalle,
+					@RequestParam("numeroRue") Long numeroRue, @RequestParam("nomRue") String nomRue, @RequestParam("codePostal") Long codePostal,
+					@RequestParam("ville") String ville, @RequestParam("pays") String pays,
+					@PathVariable("username") String username,
+					@RequestParam("logo") MultipartFile logo) { 
+				try {
+					Adresse adresse = new Adresse();
+					adresse.setNumeroRue(numeroRue);
+					adresse.setNomRue(nomRue);
+					adresse.setCodePostal(codePostal);
+					adresse.setVille(ville);
+					adresse.setPays(pays);
+					
+					SalleExposition salleExposition = new SalleExposition();
+					salleExposition.setAdresse(adresse);
+					salleExposition.setLibelle(libelle);
+					salleExposition.setDimensionSalle(dimensionSalle);
+					salleExposition.setLogo(logo.getBytes());
+					
+					Proprietaire proprietaire = proprietaireService.findByUsername(username);
+					
+					salleExposition.setProprietaire(proprietaire);
+					SalleExpositionService.save(salleExposition);
+					
+					return "Salle d'Exposition ajouté avec success!";
+				} catch (Exception ex) {
+					ex.printStackTrace();
+					return "Erreur en ajoutant la salle!";
+				}
+			}
 
 	@PutMapping("/SalleExpositions/{idSalleExpo}") // http://localhost:9090/utilisateurs/2
 	public String updateLogo(@RequestParam("logo") MultipartFile logo, @PathVariable("idSalleExpo") Long idSalleExpo) { 

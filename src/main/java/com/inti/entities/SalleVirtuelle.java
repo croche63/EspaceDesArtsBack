@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class SalleVirtuelle {
 	
@@ -76,7 +78,8 @@ public class SalleVirtuelle {
 	public void setCommentaireSalleVirtuelle(List<CommentaireSalleVirtuelle> commentaireSalleVirtuelle) {
 		this.commentaireSalleVirtuelles = commentaireSalleVirtuelle;
 	}
-
+	
+	@JsonIgnore
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
