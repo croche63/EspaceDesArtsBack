@@ -18,30 +18,28 @@ import com.inti.service.impl.CommentaireSalleVirtuelleService;
 import com.inti.service.impl.SalleVirtuelleService;
 import com.inti.service.impl.UtilisateurService;
 
-
 @RestController
 @CrossOrigin
 public class CommentaireSalleVirtuelleController {
-	
+
 	@Autowired
 	CommentaireSalleVirtuelleService commentaireSalleVirtuelleService;
-	
+
 	@Autowired
 	SalleVirtuelleService salleVirtuelleService;
-	
+
 	@Autowired
 	UtilisateurService utilisateurService;
-	
+
 	@GetMapping("/commentaireSalleVirt")
 	public List<CommentaireSalleVirtuelle> findAll() {
 		return commentaireSalleVirtuelleService.findAll();
 	}
-	
-	@GetMapping("commentaireSalleVirt/{idU}") 
-	public CommentaireSalleVirtuelle findById(@PathVariable("id")Long id) {
-		return commentaireSalleVirtuelleService.findById(id); 
-	}
 
+	@GetMapping("commentaireSalleVirt/{idU}")
+	public CommentaireSalleVirtuelle findById(@PathVariable("id") Long id) {
+		return commentaireSalleVirtuelleService.findById(id);
+	}
 
 	@PostMapping("/commentaireSalleVirt/{idSalleVirt}/{username}")
 	public CommentaireSalleVirtuelle saveCommSalleVirt(@RequestBody CommentaireSalleVirtuelle commentaireSalleVirtuelle,
