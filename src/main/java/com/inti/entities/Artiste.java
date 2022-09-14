@@ -55,7 +55,7 @@ public class Artiste extends Utilisateur {
 	public void setNationalite(String nationalite) {
 		this.nationalite = nationalite;
 	}
-
+	
 	public Set<Reservation> getReservations() {
 		return reservations;
 	}
