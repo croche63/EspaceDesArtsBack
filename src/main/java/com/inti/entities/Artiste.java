@@ -26,8 +26,7 @@ public class Artiste extends Utilisateur {
 	private Date dateNaisance;
 	private Adresse adresse;
 
-
-	//@Transient
+	// @Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Reservation> reservations = new HashSet<>();
 
@@ -35,14 +34,13 @@ public class Artiste extends Utilisateur {
 	@OneToMany(mappedBy = "artiste")
 	private Set<EvaluationArtiste> evaluationArtistes = new HashSet<>();
 
-	//@Transient
+	// @Transient
 	@OneToMany(mappedBy = "artiste")
 	private Set<Oeuvre> oeuvres = new HashSet<>();
-	
+
 	@Transient
 	@OneToOne(mappedBy = "artiste")
 	private SalleVirtuelle salleVirtuelle;
-	
 
 	public Artiste() {
 		super();
