@@ -28,7 +28,7 @@ public class SalleExposition {
 	@Embedded
 	private Adresse adresse;
 
-	@OneToOne
+  @OneToOne
 	private Proprietaire proprietaire;
 
 	@Transient
