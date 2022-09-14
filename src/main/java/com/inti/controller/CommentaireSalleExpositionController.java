@@ -12,29 +12,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.CommentaireSalleExposition;
+import com.inti.entities.SalleExposition;
+import com.inti.entities.Utilisateur;
 import com.inti.service.impl.CommentaireSalleExpositionService;
-
+import com.inti.service.impl.SalleExpositionService;
+import com.inti.service.impl.UtilisateurService;
 
 @RestController
 @CrossOrigin
 public class CommentaireSalleExpositionController {
-	
+
 	@Autowired
 	CommentaireSalleExpositionService commentaireSalleExpositionService;
-	
+
+	@Autowired
+	SalleExpositionService salleExpoService;
+
+	@Autowired
+	UtilisateurService utilisateurService;
+
 	@GetMapping("/commentaireSalleExp")
 	public List<CommentaireSalleExposition> findAll() {
 		return commentaireSalleExpositionService.findAll();
 	}
-	
-	@GetMapping("commentaireSalleExp/{idU}") 
-	public CommentaireSalleExposition findById(@PathVariable("id")Long id) {
-		return commentaireSalleExpositionService.findById(id); 
+
+	@GetMapping("commentaireSalleExp/{idU}")
+	public CommentaireSalleExposition findById(@PathVariable("id") Long id) {
+		return commentaireSalleExpositionService.findById(id);
 	}
 
-
-	@PostMapping("/commentaireSalleExp")
-	public CommentaireSalleExposition saveCommSalleExp(@RequestBody CommentaireSalleExposition commentaireSalleExposition) {
+	@PostMapping("/commentaireSalleExp/{idSalleExpo}/{username}")
+	public CommentaireSalleExposition saveCommSalleExp(
+			@RequestBody CommentaireSalleExposition commentaireSalleExposition, @PathVariable("idSalleVirt") Long id,
+			@PathVariable("username") String username) {
+		SalleExposition salleExpo = salleExpoService.findById(id);
+		Utilisateur utilisateur = utilisateurService.findByUsername(username);
+		commentaireSalleExposition.setUtilisateur(utilisateur);
+		commentaireSalleExposition.setSalleExposition(salleExpo);
 		return commentaireSalleExpositionService.save(commentaireSalleExposition);
 	}
 

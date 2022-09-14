@@ -21,26 +21,25 @@ import com.inti.service.impl.UtilisateurService;
 @RestController
 @CrossOrigin
 public class SignalementSalleVirtuelleController {
-	
+
 	@Autowired
 	SignalementSalleVirtuelleService signalementSalleVirtuelleService;
-	
+
 	@Autowired
 	SalleVirtuelleService salleVirtuelleService;
-	
+
 	@Autowired
 	UtilisateurService utilisateurService;
-	
+
 	@GetMapping("/signalementSalleVirt")
 	public List<SignalementSalleVirtuelle> findAll() {
 		return signalementSalleVirtuelleService.findAll();
 	}
-	
-	@GetMapping("signalementSalleVirt/{idU}") 
-	public SignalementSalleVirtuelle findById(@PathVariable("id")Long id) {
-		return signalementSalleVirtuelleService.findById(id); 
-	}
 
+	@GetMapping("signalementSalleVirt/{idU}")
+	public SignalementSalleVirtuelle findById(@PathVariable("id") Long id) {
+		return signalementSalleVirtuelleService.findById(id);
+	}
 
 	@PostMapping("/signalementSalleVirt/{idSalleVirt}/{username}")
 	public SignalementSalleVirtuelle saveSigSalleVirt(@RequestBody SignalementSalleVirtuelle signalementSalleVirtuelle,
