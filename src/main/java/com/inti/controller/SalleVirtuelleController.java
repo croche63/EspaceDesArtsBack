@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.inti.entities.Proprietaire;
 import com.inti.entities.SalleVirtuelle;
+import com.inti.service.interfaces.IProprietaireService;
 import com.inti.service.interfaces.ISalleVirtuelleService;
 
 @RestController
@@ -19,6 +21,9 @@ import com.inti.service.interfaces.ISalleVirtuelleService;
 public class SalleVirtuelleController {
 	@Autowired
 	ISalleVirtuelleService SalleVirtuelleService;
+	
+	@Autowired
+	IProprietaireService proprietaireService;
 
 	@GetMapping("/SalleVirtuelles")
 	public List<SalleVirtuelle> findAll() {
@@ -30,8 +35,10 @@ public class SalleVirtuelleController {
 		return SalleVirtuelleService.findById(id);
 	}
 
-	@PostMapping("/SalleVirtuelles")
-	public SalleVirtuelle saveSalleVirtuelle(@RequestBody SalleVirtuelle SalleVirtuelle) {
+	@PostMapping("/SalleVirtuelles/{username}")
+	public SalleVirtuelle saveSalleVirtuelle(@RequestBody SalleVirtuelle SalleVirtuelle, @PathVariable("username") String username) {
+		Proprietaire proprietaire = proprietaireService.findByUsername(username);
+		SalleVirtuelle.setProprietaire(proprietaire);
 		return SalleVirtuelleService.save(SalleVirtuelle);
 	}
 
