@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,19 +22,23 @@ public class ProprietaireController {
 	@Autowired
 	IProprietaireService ProprietaireService;
 
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
 	@GetMapping("/Proprietaires")
 	public List<Proprietaire> findAll() {
 		return ProprietaireService.findAll();
 	}
-	
+
 	@GetMapping("/Proprietaires/{username}")
 	public Proprietaire findByUsername(@PathVariable("username") String username) {
 		return ProprietaireService.findByUsername(username);
 	}
 
 	@PostMapping("/Proprietaires")
-	public Proprietaire saveProprietaire(@RequestBody Proprietaire Proprietaire) {
-		return ProprietaireService.save(Proprietaire);
+	public Proprietaire saveProprietaire(@RequestBody Proprietaire proprietaire) {
+		proprietaire.setPassword(passwordEncoder.encode(proprietaire.getPassword()));
+		return ProprietaireService.save(proprietaire);
 	}
 
 	@DeleteMapping("/Proprietaires/{id}")
@@ -43,8 +48,7 @@ public class ProprietaireController {
 
 	@PutMapping("/Proprietaire/{id}")
 	public void update(@RequestBody Proprietaire proprietaire) {
-		Proprietaire current_proprietaire = 
-				ProprietaireService.findOne(proprietaire.getId());
+		Proprietaire current_proprietaire = ProprietaireService.findOne(proprietaire.getId());
 		current_proprietaire.setNom(proprietaire.getNom());
 		current_proprietaire.setPrenom(proprietaire.getPrenom());
 		// etc..

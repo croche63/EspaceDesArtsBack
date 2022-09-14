@@ -25,7 +25,7 @@ import com.inti.service.interfaces.IUtilisateurService;
 public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
-	
+
 	@Autowired
 	PasswordEncoder passwordEncoder;
 
@@ -39,11 +39,11 @@ public class UtilisateurController {
 		return utilisateurService.findOne(id);
 	}
 
-	@PostMapping("/utilisateurs") 
+	@PostMapping("/utilisateurs")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
 		return utilisateurService.save(utilisateur);
-		
+
 	}
 	// Nouvelle méthode de sauvegarde:
 	/*
@@ -79,9 +79,10 @@ public class UtilisateurController {
 	public void deleteUtilisateur(@PathVariable("idUtilisateur") Long id) {
 		utilisateurService.delete(id);
 	}
-	
+
 	@PutMapping("users/{idUtilisateur}")
-	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur, @RequestBody Utilisateur user) {
+	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long idUtilisateur,
+			@RequestBody Utilisateur user) {
 		Utilisateur currentUtilisateur = utilisateurService.findOne(idUtilisateur);
 		currentUtilisateur.setNom(user.getNom());
 		currentUtilisateur.setPrenom(user.getPrenom());

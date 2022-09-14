@@ -3,6 +3,7 @@ package com.inti.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,22 +21,26 @@ public class ArtisteController {
 	@Autowired
 	IArtisteService ArtisteService;
 
+	@Autowired
+	PasswordEncoder passwordEncoder;
+
 	@GetMapping("/Artistes")
 	public List<Artiste> findAll() {
 		return ArtisteService.findAll();
 	}
 
 	@PostMapping("/Artistes")
-	public Artiste saveArtiste(@RequestBody Artiste Artiste) {
-		return ArtisteService.save(Artiste);
+	public Artiste saveArtiste(@RequestBody Artiste artiste) {
+		artiste.setPassword(passwordEncoder.encode(artiste.getPassword()));
+		return ArtisteService.save(artiste);
 	}
 
 	@DeleteMapping("/Artistes/{id}")
 	public void deleteArtiste(@PathVariable("id") Long id) {
 		ArtisteService.delete(id);
 	}
-	
-	//Pour trouver l'artiste connecté
+
+	// Pour trouver l'artiste connecté
 	@GetMapping("/Artistes/{username}")
 	public Artiste findByUsername(@PathVariable("username") String username) {
 		return ArtisteService.findByUsername(username);

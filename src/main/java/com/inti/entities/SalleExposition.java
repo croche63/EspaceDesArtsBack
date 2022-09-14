@@ -27,32 +27,32 @@ public class SalleExposition {
 	private String dimensionSalle;
 	@Embedded
 	private Adresse adresse;
-	
-	//@JsonIgnore
-	@OneToOne
+
+  @OneToOne
 	private Proprietaire proprietaire;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<SignalementSalleExposition> signalementSalleExposition;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<Reservation> reservation;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<EvaluationArtiste> evaluationArtiste;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<CommentaireSalleExposition> commentaireSalleExposition;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<Oeuvre> oeuvre;
-		
-	public SalleExposition() {}
+
+	public SalleExposition() {
+	}
 
 	public Long getId() {
 		return id;
