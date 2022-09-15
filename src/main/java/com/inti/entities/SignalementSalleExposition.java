@@ -81,7 +81,6 @@ public class SignalementSalleExposition implements Serializable {
 		this.date = date;
 	}
 
-	@JsonIgnore
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}
