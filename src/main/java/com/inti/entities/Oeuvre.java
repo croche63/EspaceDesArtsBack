@@ -32,7 +32,7 @@ public class Oeuvre {
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Artiste artiste;
 	
-	@Transient
+	//@Transient
 	@OneToMany(mappedBy = "oeuvre")
 	private List<CommentaireOeuvre> commentaireOeuvre;
 	
