@@ -89,7 +89,8 @@ public class CommentaireOeuvre implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
+	
+	@JsonIgnore
 	public Oeuvre getOeuvre() {
 		return oeuvre;
 	}
