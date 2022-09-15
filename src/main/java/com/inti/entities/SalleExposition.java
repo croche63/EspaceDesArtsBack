@@ -28,7 +28,7 @@ public class SalleExposition {
 	@Embedded
 	private Adresse adresse;
 
-  @OneToOne
+	@OneToOne
 	private Proprietaire proprietaire;
 
 	@Transient
@@ -43,11 +43,10 @@ public class SalleExposition {
 	@OneToMany(mappedBy = "salleExposition")
 	private List<EvaluationArtiste> evaluationArtiste;
 
-	@Transient
 	@OneToMany(mappedBy = "salleExposition")
 	private List<CommentaireSalleExposition> commentaireSalleExposition;
 
-	@Transient
+	
 	@OneToMany(mappedBy = "salleExposition")
 	private List<Oeuvre> oeuvre;
 

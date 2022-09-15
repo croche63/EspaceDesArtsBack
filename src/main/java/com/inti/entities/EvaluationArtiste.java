@@ -12,8 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class EvaluationArtiste implements Serializable {
@@ -27,10 +30,10 @@ public class EvaluationArtiste implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private SalleExposition salleExposition;
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Artiste artiste;
 
 	public EvaluationArtiste() {
@@ -77,6 +80,7 @@ public class EvaluationArtiste implements Serializable {
 		this.date = date;
 	}
 
+	@JsonIgnore
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}
