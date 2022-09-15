@@ -32,7 +32,6 @@ public class CommentaireOeuvre implements Serializable {
 
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "idOeuvre")
-	@JsonIgnore
 	private Oeuvre oeuvre;
 
 	@ManyToOne(fetch=FetchType.EAGER)

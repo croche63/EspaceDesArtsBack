@@ -27,30 +27,29 @@ public class Oeuvre {
 	private byte[] image;
 	private int prix;
 	private String type;
-	
-	//@JsonIgnore
-	@ManyToOne(fetch=FetchType.EAGER)
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Artiste artiste;
 	
 	//@Transient
 	@OneToMany(mappedBy = "oeuvre")
 	private List<CommentaireOeuvre> commentaireOeuvre;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private SalleExposition salleExposition;
-	
+
 	@Transient
 	@OneToMany(mappedBy = "oeuvre")
 	private List<SignalementOeuvre> signalementOeuvre;
-	
-	@ManyToOne(fetch=FetchType.EAGER)
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private SalleVirtuelle salleVirtuelle;
 
 	public Oeuvre() {
 	}
 
-	public Oeuvre(Long idOeuvre, String nom, String information, byte[] image, int prix, String type,
-			Artiste artiste, List<CommentaireOeuvre> commentaireOeuvre, SalleExposition salleExposition,
+	public Oeuvre(Long idOeuvre, String nom, String information, byte[] image, int prix, String type, Artiste artiste,
+			List<CommentaireOeuvre> commentaireOeuvre, SalleExposition salleExposition,
 			List<SignalementOeuvre> signalementOeuvre, SalleVirtuelle salleVirtuelle) {
 		super();
 		this.idOeuvre = idOeuvre;
@@ -113,7 +112,7 @@ public class Oeuvre {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	@JsonIgnore
 	public Artiste getArtiste() {
 		return artiste;
@@ -123,6 +122,7 @@ public class Oeuvre {
 		this.artiste = artiste;
 	}
 
+	@JsonIgnore
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}

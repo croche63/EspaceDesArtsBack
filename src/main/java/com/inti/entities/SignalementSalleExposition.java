@@ -29,11 +29,11 @@ public class SignalementSalleExposition implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idSalleExposition")
 	private SalleExposition salleExposition;
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idUtilisateur")
 	private Utilisateur utilisateur;
 
@@ -81,6 +81,7 @@ public class SignalementSalleExposition implements Serializable {
 		this.date = date;
 	}
 
+	@JsonIgnore
 	public SalleExposition getSalleExposition() {
 		return salleExposition;
 	}
@@ -96,6 +97,5 @@ public class SignalementSalleExposition implements Serializable {
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
-
 
 }

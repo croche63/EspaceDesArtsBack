@@ -43,7 +43,7 @@ public class CommentaireSalleExpositionController {
 
 	@PostMapping("/commentaireSalleExp/{idSalleExpo}/{username}")
 	public CommentaireSalleExposition saveCommSalleExp(
-			@RequestBody CommentaireSalleExposition commentaireSalleExposition, @PathVariable("idSalleVirt") Long id,
+			@RequestBody CommentaireSalleExposition commentaireSalleExposition, @PathVariable("idSalleExpo") Long id,
 			@PathVariable("username") String username) {
 		SalleExposition salleExpo = salleExpoService.findById(id);
 		Utilisateur utilisateur = utilisateurService.findByUsername(username);
